@@ -55,4 +55,5 @@ import ObjectIds
         ..setManaMaximum(50)
         ..setManaInitialAmount(50)
         ..setManaRegeneration(3)
+        ..setAcquisitionRange(DARK_PRIEST_ACQUISITION) 
 

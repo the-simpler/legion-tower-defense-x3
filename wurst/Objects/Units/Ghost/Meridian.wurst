@@ -53,5 +53,6 @@ import ObjectIds
         ..setManaMaximum(1100)
         ..setManaInitialAmount(1100)
         ..setManaRegeneration(12)
+        ..setAcquisitionRange(MERIDIAN_ACQUISITION)
         
 

@@ -1,7 +1,6 @@
 ---
 projectName: ___
 dependencies:
-- https://github.com/netVoix/WurstStdlib2
 - https://github.com/wurstscript/wurstStdlib2
 buildMapData:
   name: Legion TD |cffff0000Mega|r |cff0004ffOZGame|r v 1.63

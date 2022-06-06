@@ -8,6 +8,7 @@ public let DARK_PRIEST_COST = 325
 public let DARK_PRIEST_BASE_DAMAGE = 97
 public let DARK_PRIEST_ATTACK_SPEED = 0.82
 public let DARK_PRIEST_RANGE = 700
+public let DARK_PRIEST_ACQUISITION = 750.0     //should be more than RANGE
 public let DARK_PRIEST_SHORT_DESCRIPTION = "Promote to Dark Priest  [|cffFFcc00S|r]"
 public let DARK_PRIEST_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff8000100-121|r" + 
                                      "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(DARK_PRIEST_ATTACK_SPEED.toString()) +
