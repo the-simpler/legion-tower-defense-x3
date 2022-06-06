@@ -1,0 +1,30 @@
+package GetAttacked
+import Orders
+//import Orders
+
+function attackedAct()
+	let u = GetAttacker()
+	let uid = u.getTypeId()
+//	let jerva = GetTriggerUnit()
+	// let owner = u.getOwner()
+	// let data = owner.getId()
+	if uid == 'h06Z'
+		if GetRandomInt(1,4) == 1 and (UnitHasBuffBJ(u,'B029')==false)
+			u.issueImmediateOrderById(852100)
+	if uid == 'h0BT'
+		if GetUnitManaPercent(u) == 100
+			u.issueTargetOrderById(OrderIds.unholyfrenzy, u)
+	if uid == 'h069' or uid == 'h06A' or uid == 'h091'
+		if GetUnitManaPercent(u) == 100
+			u.issueImmediateOrderById(852526)
+// 	if uid == 'h28V' or uid == 'h48V'
+// 		if GetUnitManaPercent(u) == 100
+// 			let order = u.getCurrentOrder()
+// 			if order != 852218 and order != OrderIds.parasite
+// 				u.issuePointOrderById(852218, jerva.getPos())			
+	
+init
+	let t = CreateTrigger()
+	for i = 8 to 14
+		TriggerRegisterPlayerUnitEvent(t, Player(i), EVENT_PLAYER_UNIT_ATTACKED, null)
+	t.addAction(function attackedAct)		

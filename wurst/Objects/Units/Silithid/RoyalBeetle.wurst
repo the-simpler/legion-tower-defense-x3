@@ -1,0 +1,56 @@
+package RoyalBeetle
+
+import RoyalBeetleData
+import RoyalSilithidBlood
+import ThickSkin
+import LegionUnit
+import ObjectIds
+
+@compiletime function createRoyalBeetle()
+    let royalBeetle = new LegionUnit(LegionUnitId(ROYAL_BEETLE_UNIT_ID, 'hrif'), ROYAL_BEETLE_TOWER_ID)
+        ..setHotkey("P")
+        ..setName("Royal Beetle")
+        ..setSounds("Spider")
+        ..setIcon("ReplaceableTextures\\CommandButtons\\BTNSilithidDevourer.blp")
+        ..setModel("Models\\SilithidScarab_LobstrokkBlueSkin.mdl")
+        ..setMovespeed(ROYAL_BEETLE_MOVE_SPEED)
+        ..setHP(ROYAL_BEETLE_MAX_HP)
+        ..setCost(ROYAL_BEETLE_COST)
+        ..setPriority(2)
+        ..setFoodCost(3)
+        ..setSize(32)
+        ..setSelectionSize(2.5)
+        ..setRange(ROYAL_BEETLE_RANGE)
+        ..setBaseDamage(ROYAL_BEETLE_BASE_DAMAGE)
+        ..setAttackSpeed(ROYAL_BEETLE_ATTACK_SPEED)
+        ..setBackswingDur(0.300)
+        ..setDamageDur(0.200)
+        ..setArmorType(ArmorType.Unarmored)
+        ..setTooltipShort(ROYAL_BEETLE_SHORT_DESCRIPTION)
+        ..setTooltipLong(ROYAL_BEETLE_FULL_DESCRIPTION)
+        ..setAttackType(AttackType.Siege)
+        ..setWeaponType(WeaponType.Normal)
+        // ..setProjectileSpeed(1200)
+        // ..setProjectileArt(Abilities.skeletalMageMissile)
+        // ..setProjectileArc(0.1)
+        ..setDamageInterval(14)
+        ..setDamageOffset(1)
+        ..setModelSize(1)
+        ..setMovementType(MovementType.Foot)
+
+    royalBeetle.getTowerInstance()
+        ..setButtonPositionX(0)
+        ..setButtonPositionY(2)
+        ..setNormalAbilities("A008,"+ROYAL_SILITHID_BLOOD_ID.toRawCode()+","+THICK_SKIN_ID.toRawCode())
+        ..setManaMaximum(0)
+        ..setManaInitialAmount(0)
+        ..setPointValue(440)
+    royalBeetle.getUnitInstance()
+        ..setArmorSoundType(ArmorSoundType.Flesh)
+        ..setNormalAbilities(THICK_SKIN_ID.toRawCode())
+        ..setManaMaximum(0)
+        ..setManaInitialAmount(0)
+        ..setManaRegeneration(0)
+        ..setHitPointsRegenerationRate(25)
+        ..setAttack1WeaponSound(WeaponSound.WoodHeavyBash)
+

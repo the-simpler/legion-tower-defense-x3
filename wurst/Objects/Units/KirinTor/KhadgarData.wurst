@@ -1,0 +1,19 @@
+package KhadgarData
+
+public let KHADGAR_UNIT_ID = 'h28X'
+public let KHADGAR_TOWER_ID = 'h28Y'
+public let KHADGAR_MOVE_SPEED = 270
+public let KHADGAR_MAX_HP = 1040
+public let KHADGAR_COST = 240
+public let KHADGAR_BASE_DAMAGE = 127
+public let KHADGAR_ATTACK_SPEED = 0.90
+public let KHADGAR_RANGE = 500
+public let KHADGAR_SHORT_DESCRIPTION = "Promote to Silithid Withcer  [|cffFFcc00P|r]"
+public let KHADGAR_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff8000128-132|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(KHADGAR_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(KHADGAR_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(KHADGAR_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Magic|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Unarmored|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 Conjure Higher Magic, Kirin Tor Magic|r"
+                                     

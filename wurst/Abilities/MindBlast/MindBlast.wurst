@@ -1,0 +1,46 @@
+package MindBlast
+
+import SilithidMindslayerData
+import RegisterEvents
+import MindBlastData
+import OrderIds
+import SilithidSolipsistData
+
+init
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT) ->
+        if GetSpellAbilityId() == FAKE_MIND_BLAST_ID
+            let owner = GetSpellAbilityUnit().getOwner()
+            let casterUnit = GetSpellAbilityUnit()
+            let targetUnit = GetSpellTargetUnit()
+            let targetLoc = GetUnitLoc(targetUnit)
+            let data = GetUnitUserData(casterUnit)
+            let id = casterUnit.getTypeId()
+            let abil = id == SILITHID_MINDSLAYER_UNIT_ID or id == 'h18X' ? LESSER_MIND_BLAST_ID : HIGHER_MIND_BLAST_ID
+            AddSpecialEffectLocBJ(targetLoc,"Model035.mdx")
+            DestroyEffect(bj_lastCreatedEffect)
+            let dummy = CreateUnitAtLoc(owner,'u006', targetLoc, bj_UNIT_FACING)
+            UnitApplyTimedLifeBJ(1.,'BTLF',dummy)
+            UnitAddAbility(dummy, abil)
+            SetUnitUserData(dummy, data)
+            IssueImmediateOrderById(dummy, OrderIds.stomp)
+            RemoveLocation(targetLoc)
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_ATTACKED) ->
+        let u = GetAttacker()
+        let uid = u.getTypeId()
+        if uid == SILITHID_MINDSLAYER_UNIT_ID or uid == SILITHID_SOLIPSIST_UNIT_ID
+            if u.getMana() == u.getMaxMana()
+                u.setMana(0)
+                let owner = u.getOwner()
+                let targetUnit = GetTriggerUnit()
+                let targetLoc = GetUnitLoc(targetUnit)
+                let data = u.getUserData()
+                let abil = uid == SILITHID_MINDSLAYER_UNIT_ID  ? LESSER_MIND_BLAST_ID : HIGHER_MIND_BLAST_ID
+                AddSpecialEffectLocBJ(targetLoc,"Model035.mdx")
+                DestroyEffect(bj_lastCreatedEffect)
+                let dummy = CreateUnitAtLoc(owner,'u006', targetLoc, bj_UNIT_FACING)
+                UnitApplyTimedLifeBJ(1.,'BTLF',dummy)
+                UnitAddAbility(dummy, abil)
+                SetUnitUserData(dummy, data)
+                IssueImmediateOrderById(dummy, OrderIds.stomp)
+                RemoveLocation(targetLoc)
+

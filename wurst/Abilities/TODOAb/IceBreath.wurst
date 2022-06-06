@@ -1,0 +1,74 @@
+package IceBreath
+
+import AbilityObjEditing
+import RegisterEvents
+import DummyCaster
+import OrderIds
+
+let ICE_BREATH_FAKE_ID = 'A18X'
+
+@compiletime function iceBreathFake()
+  new AbilityDefinitionCurse(ICE_BREATH_FAKE_ID)
+    ..setLevels(1)
+    ..setCastRange(1, 700)
+    ..setManaCost(1, 10)
+    ..setCooldown(1, 8)
+    ..setDurationNormal(1, 0.1)
+    ..setDurationHero(1, 0.1)
+    ..setChancetoMiss(1, 0)
+    ..setBuffs(1, "")
+    ..setArtCaster("")
+
+
+init
+  registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT) ->
+    if GetSpellAbilityId() == ICE_BREATH_FAKE_ID
+      new DummyCaster()
+        ..owner(GetTriggerPlayer())
+        ..delay(15)
+        ..origin(GetTriggerUnit().getPos())
+        ..castPointWithUserData('A096', 1, OrderIds.breathoffrost , GetSpellTargetUnit().getPos(), GetTriggerUnit().getUserData())
+  
+@compiletime function create_w3u_h0BN()
+  createObjectDefinition("w3u", 'h0BN', 'hdhw')
+  ..setString("umdl", "units\\creeps\\AzureDragonWelp\\AzureDragonWelp.mdl")
+  ..setString("utub", "")
+  ..setString("utip", "")
+  ..setString("uhot", "")
+  ..setString("upgr", "R00B,R00C,R009,R00A")
+  ..setString("ureq", "")
+  ..setString("unam", "Young Frost Dragon")
+  ..setString("uico", "ReplaceableTextures\\CommandButtons\\BTNBlueDragonRoost.blp")
+  ..setString("ua1g", "enemies")
+  ..setInt("ulum", 0)
+  ..setInt("uhpm", 1360)
+  ..setString("uhrt", "none")
+  ..setUnreal("uhpr", 0.0)
+  ..setInt("udef", 3)
+  ..setUnreal("ua1c", 1.2)
+  ..setInt("ua1b", 139)
+  ..setString("ua1t", "magic")
+  ..setString("utyp", "giant")
+  ..setInt("umpm", 10)
+  ..setInt("umpi", 10)
+  ..setUnreal("umpr", 1.0)
+  ..setString("udty", "none")
+  ..setString("ua1m", ".mdl")
+  ..setUnreal("umvh", 280.0)
+  ..setString("usnd", "AzureDragon")
+  ..setString("ua1w", "msplash")
+  ..setString("ua1p", "enemies,ground")
+  ..setString("uarm", "Wood")
+  ..setUnreal("ucol", 20.0)
+  ..setUnreal("udp1", 0.56)
+  ..setUnreal("ubs1", 0.34)
+  ..setInt("usin", 800)
+  ..setInt("usid", 1400)
+  ..setInt("ufoo", 2)
+  ..setInt("ugol", 265)
+  ..setString("uabi", "A18X")
+  ..setUnreal("uacq", 700.0)
+  ..setReal("usca", 0.8)
+  ..setString("unsf", "fighter")
+  ..setUnreal("uma1", 0.0)
+  ..setInt("ua1s", 6) 

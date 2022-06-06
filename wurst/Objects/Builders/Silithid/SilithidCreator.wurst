@@ -1,0 +1,47 @@
+package SilithidCreator
+
+import UnitObjEditing
+import LinkedList
+import UnitsStore
+import Units
+import Icons
+// import SwitchStackability
+
+public class SilithidCreator
+  static function createSilithid(int id) returns UnitOrBuildingOrHeroDefinition
+    let r = new UnitOrBuildingOrHeroDefinition(id, 'uaco')
+            // ..setNormalAbilities("A08L,A09O,A02U,Avul,A050," + commaList(SWITCH_STACKABILITY_ID))
+            ..setNormalAbilities("A08L,A09O,A02U,Avul,A050")
+            ..setCollisionSize(1.0)
+            ..setSpeedBase(400)
+            ..setAttacksEnabled(0)
+            ..setPointValue(0)
+            ..setMovementType(MovementType.Fly)
+            ..setUpgradesUsed("")
+            ..setHitPointsMaximumBase(150000)
+            ..setName("Silithid")
+            ..setTooltipBasic("Choose Silithid")
+            ..setTooltipExtended("Powerful insect army. Has strong units with hight regeneration, but they are expensive.")
+            ..setHotkey("")
+            ..setModelFile(Units.heroCryptLord1)
+            ..setIconGameInterface(Icons.bTNHeroCryptLord)
+            ..setUnitSoundSet("HeroCryptLord")
+            ..setFoodCost(0)
+            ..setGoldCost(0)
+            ..setBuildTime(1)
+            ..setRequirements("u00F")
+            ..setSelectionScale(1.5)
+            ..setScalingValue(0.9)
+            ..setHitPointsRegenerationRate(-0.1)
+            ..setAnimationCastPoint(0.001)
+            ..setScaleProjectiles(false)
+    
+    let units = new LinkedList<int>()
+
+    for tier in UnitsStore.prophetUnits
+      units.addAll(tier)
+
+    (r castTo UnitDefinition).setStructuresBuilt("h11C,h11H,h51H,h11I,h18V,h58V")
+    (r castTo BuildingDefinition).setResearchesAvailable("R00D")
+
+    return r

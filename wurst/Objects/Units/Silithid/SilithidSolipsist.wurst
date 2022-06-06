@@ -1,0 +1,55 @@
+package SilithidSolipsist
+ 
+import SilithidSolipsistData
+import MindBlastData
+import Distortion
+import LegionUnit
+import ObjectIds
+
+@compiletime function createSilithidSolipsist()
+    let silithidSolipsist = new LegionUnit(LegionUnitId(SILITHID_SOLIPSIST_UNIT_ID, 'hrif'), SILITHID_SOLIPSIST_TOWER_ID)
+        ..setHotkey("P")
+        ..setName("Silithid Mindslayer")
+        ..setSounds("Varimathras")
+        ..setIcon("ReplaceableTextures\\CommandButtons\\BTNBlackpyrotyrant.blp")
+        ..setModel("Models\\QuirajProphet_CryptLordPurpleSkin.mdl")
+        ..setMovespeed(SILITHID_SOLIPSIST_MOVE_SPEED)
+        ..setHP(SILITHID_SOLIPSIST_MAX_HP)
+        ..setCost(SILITHID_SOLIPSIST_COST)
+        ..setPriority(2)
+        ..setFoodCost(4)
+        ..setSize(32)
+        ..setSelectionSize(1.5)
+        ..setRange(SILITHID_SOLIPSIST_RANGE)
+        ..setBaseDamage(SILITHID_SOLIPSIST_BASE_DAMAGE)
+        ..setAttackSpeed(SILITHID_SOLIPSIST_ATTACK_SPEED)
+        ..setBackswingDur(0.300)
+        ..setDamageDur(0.300)
+        ..setArmorType(ArmorType.Divine)
+        ..setTooltipShort(SILITHID_SOLIPSIST_SHORT_DESCRIPTION)
+        ..setTooltipLong(SILITHID_SOLIPSIST_FULL_DESCRIPTION)
+        ..setAttackType(AttackType.Chaos)
+        ..setWeaponType(WeaponType.Missile)
+        ..setProjectileSpeed(6000)
+        ..setProjectileArc(0)
+        ..setProjectileArt("")
+        ..setDamageInterval(36)
+        ..setDamageOffset(1)
+        ..setModelSize(0.85)
+        ..setMovementType(MovementType.Foot)
+
+    silithidSolipsist.getTowerInstance()
+        ..setButtonPositionX(0)
+        ..setButtonPositionY(2)
+        ..setNormalAbilities("A008,"+HIGHER_MIND_BLAST_ID.toRawCode()+","+HIGHER_DISTORTION_ID.toRawCode())
+        ..setManaMaximum(30)
+        ..setManaInitialAmount(30)
+        ..setPointValue(510)
+    silithidSolipsist.getUnitInstance()
+        ..setArmorSoundType(ArmorSoundType.Ethereal)
+        ..setNormalAbilities(HIGHER_DISTORTION_ID.toRawCode())
+        ..setManaMaximum(30)
+        ..setManaInitialAmount(20)
+        ..setManaRegeneration(1)
+        ..setAttack1ProjectileHomingEnabled(true)
+

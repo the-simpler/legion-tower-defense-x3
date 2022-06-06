@@ -1,0 +1,6 @@
+package EvasionData
+
+public let WANDIGOO_EVASION = 0.12
+public let WANDIGOO_EVASION_DESCRIPTION = "Gives a 12% chance to avoid an attack."
+public let ANCIENT_WANDIGO_EVASION = 0.25
+public let ANCIENT_WANDIGO_EVASION_DESCRIPTION = "Gives a 25% chance to avoid an attack."

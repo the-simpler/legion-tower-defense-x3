@@ -1,0 +1,32 @@
+package AggroFix
+
+region aggroForceMax = CreateRegion()
+
+function enterForce()
+    let u = GetEnteringUnit()
+    let p = u.getOwner()
+    if p == Player(10) or p == Player(13) or p == Player(11) or p == Player(14) 
+        SetUnitAcquireRange(u, 825)
+
+function leaveForce()
+    let u = GetLeavingUnit()
+    let p = u.getOwner()
+    let id = u.getTypeId()
+    if p == Player(10) or p == Player(13) or p == Player(11) or p == Player(14)
+        if id != 'h04Y' and id != 'h055' 
+            SetUnitAcquireRange(u, 600)
+        else
+            SetUnitAcquireRange(u, 725)
+init
+    RegionAddRect(aggroForceMax, LLfAgro)
+    RegionAddRect(aggroForceMax, LRfAgro)
+    RegionAddRect(aggroForceMax, RLfAgro)
+    RegionAddRect(aggroForceMax, RRfAgro)
+
+    let t = CreateTrigger()
+    TriggerRegisterEnterRegionSimple(t, aggroForceMax)
+    t.addAction(function enterForce)
+
+    let t2 = CreateTrigger()
+    TriggerRegisterLeaveRegionSimple(t2, aggroForceMax)
+    t2.addAction(function leaveForce)

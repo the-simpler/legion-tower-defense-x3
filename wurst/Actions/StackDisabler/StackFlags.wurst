@@ -1,0 +1,40 @@
+package StackFlags
+
+import LinkedList
+
+public class StackFlags
+  private static let stackMap = [new LinkedList<int>(), new LinkedList<int>(), new LinkedList<int>(), new LinkedList<int>(),
+                                    new LinkedList<int>(), new LinkedList<int>(), new LinkedList<int>(), new LinkedList<int>()]
+
+  static function disable(int pid, int targetPid)
+    if not stackMap[pid].has(targetPid)
+      stackMap[pid].add(targetPid)
+
+  static function enable(int pid, int targetPid)
+    if stackMap[pid].has(targetPid)
+      stackMap[pid].remove(targetPid)
+
+  static function toggle(int pid, int targetPid)
+    if stackMap[pid].has(targetPid)
+      enable(pid, targetPid)
+    else
+      disable(pid, targetPid)
+
+  static function isDisabled(int pid, int targetPid) returns bool
+    if pid >= 0
+      return stackMap[pid].has(targetPid)
+    else
+      return false
+
+
+
+@Test function stackFlagsTest()
+  StackFlags.disable(0, 1)
+  StackFlags.disable(0, 5)
+  StackFlags.isDisabled(0, 1).assertEquals(true)
+  StackFlags.isDisabled(0, 5).assertEquals(true)
+  StackFlags.isDisabled(0, 2).assertEquals(false)
+  StackFlags.enable(0, 5)
+  StackFlags.isDisabled(0, 5).assertEquals(false)
+  StackFlags.toggle(0, 5)
+  StackFlags.isDisabled(0, 5).assertEquals(true)

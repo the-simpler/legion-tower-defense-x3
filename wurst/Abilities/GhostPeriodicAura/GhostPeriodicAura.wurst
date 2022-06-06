@@ -1,0 +1,39 @@
+package GhostPeriodicAura
+import ClosureTimers
+
+
+
+public trigger ghostAura = CreateTrigger()
+
+
+function forCreepsWithGhostBuff()
+	let u = GetEnumUnit()
+	if GetUnitAbilityLevel(u, 'B03Q') > 0
+		let percent = GetUnitLifePercent(u)
+		let per = percent > 1 ? percent - 1 : 1
+		SetUnitLifePercentBJ(u, per)
+
+function ghostAura()
+	if udg_SpecialEvent == false
+		ForGroup(udg_Creeps_UnitGroup, function forCreepsWithGhostBuff)
+	else
+		ForGroup(udg_Fighter_West, function forCreepsWithGhostBuff)
+		ForGroup(udg_Fighter_East, function forCreepsWithGhostBuff)
+
+function enableGhostAura()
+	doAfter(2) ->
+		if ghostInGame
+			ghostAura.enable()
+
+function disableGhostAura()
+	ghostAura.disable()
+	ghostInGame = false
+	
+init
+	ghostAura.disable()
+	TriggerRegisterTimerEventPeriodic(ghostAura, 1.0)
+	ghostAura.addAction(function ghostAura)
+
+	gg_trg_Spawn_General..addAction(function enableGhostAura)
+
+	end_wave_trigger..addCondition(Condition(function disableGhostAura))

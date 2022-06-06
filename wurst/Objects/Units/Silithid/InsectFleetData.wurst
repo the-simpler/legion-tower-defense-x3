@@ -1,0 +1,19 @@
+package InsectFleetData
+
+public let INSECT_FLEET_UNIT_ID = 'h81H'
+public let INSECT_FLEET_TOWER_ID = 'h71H'
+public let INSECT_FLEET_MOVE_SPEED = 270
+public let INSECT_FLEET_MAX_HP = 820
+public let INSECT_FLEET_COST = 225
+public let INSECT_FLEET_BASE_DAMAGE = 307
+public let INSECT_FLEET_ATTACK_SPEED = 3.05
+public let INSECT_FLEET_RANGE = 300
+public let INSECT_FLEET_SHORT_DESCRIPTION = "Promote to Insect Fleet  [|cffFFcc00P|r]"
+public let INSECT_FLEET_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff8000308-372|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(INSECT_FLEET_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(INSECT_FLEET_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(INSECT_FLEET_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Magic|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Unarmored|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 Acid Breath, Corrosive Breath|r"
+                                     

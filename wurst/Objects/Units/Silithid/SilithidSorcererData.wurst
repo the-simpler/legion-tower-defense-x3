@@ -1,0 +1,19 @@
+package SilithidSorcererData
+
+public let SILITHID_SORCERER_UNIT_ID = 'h28V'
+public let SILITHID_SORCERER_TOWER_ID = 'h18V'
+public let SILITHID_SORCERER_MOVE_SPEED = 270
+public let SILITHID_SORCERER_MAX_HP = 835
+public let SILITHID_SORCERER_COST = 190
+public let SILITHID_SORCERER_BASE_DAMAGE = 45
+public let SILITHID_SORCERER_ATTACK_SPEED = 0.8
+public let SILITHID_SORCERER_RANGE = 500
+public let SILITHID_SORCERER_SHORT_DESCRIPTION = "Deploy Silithid Sorcerer  [|cffFFcc00A|r]"
+public let SILITHID_SORCERER_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff800046-52|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(SILITHID_SORCERER_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(SILITHID_SORCERER_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(SILITHID_SORCERER_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Magic|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Unarmored|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 Carrion Swarm|r"
+                                     

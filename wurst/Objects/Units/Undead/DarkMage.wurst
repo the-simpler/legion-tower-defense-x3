@@ -1,0 +1,56 @@
+package DarkMage
+
+import MindWarp
+import DarkMageData
+import LegionUnit
+import Units
+import Abilities
+import Icons
+import ObjectIds
+
+@compiletime function createDarkMage()
+    let necrolyte = new LegionUnit(LegionUnitId(DARK_MAGE_UNIT_ID, 'hrif'), DARK_MAGE_TOWER_ID)
+        ..setHotkey("O")
+        ..setName("Dark Mage")
+        ..setSounds("Skeleton")
+        ..setIcon(Icons.bTNSkeletonMage)
+        ..setModel(Units.skeletonMage1)
+        ..setMovespeed(DARK_MAGE_MOVE_SPEED)
+        ..setHP(DARK_MAGE_MAX_HP)
+        ..setCost(DARK_MAGE_COST)
+        ..setPriority(2)
+        ..setFoodCost(1)
+        ..setSize(72)
+        ..setSelectionSize(1.5)
+        ..setRange(DARK_MAGE_RANGE)
+        ..setBaseDamage(DARK_MAGE_BASE_DAMAGE)
+        ..setAttackSpeed(DARK_MAGE_ATTACK_SPEED)
+        ..setBackswingDur(0.500)
+        ..setDamageDur(0.500)
+        ..setArmorType(ArmorType.Small)
+        ..setTooltipShort(DARK_MAGE_SHORT_DESCRIPTION)
+        ..setTooltipLong(DARK_MAGE_FULL_DESCRIPTION)
+        ..setAttackType(AttackType.Magic)
+        ..setWeaponType(WeaponType.Missile)
+        ..setProjectileSpeed(1200)
+        ..setProjectileArt(Abilities.skeletalMageMissile)
+        ..setProjectileArc(0.1)
+        ..setDamageInterval(5)
+        ..setDamageOffset(1)
+        ..setModelSize(1.0)
+        ..setMovementType(MovementType.Foot)
+
+    necrolyte.getTowerInstance()
+        ..setButtonPositionX(2)
+        ..setButtonPositionY(2)
+        ..setNormalAbilities("A02K,A033,A008")
+        ..setManaMaximum(20)
+        ..setManaInitialAmount(20)
+        ..setPointValue(105)
+    necrolyte.getUnitInstance()
+        ..setArmorSoundType(ArmorSoundType.Flesh)
+        ..setNormalAbilities(commaList(MIND_WARP_FOR_FAKE_ID))
+        ..setManaMaximum(20)
+        ..setManaInitialAmount(20)
+        ..setManaRegeneration(1)
+

@@ -1,0 +1,19 @@
+package CarrionFighterData
+
+public let CARRION_FIGHTER_UNIT_ID = 'h21D'
+public let CARRION_FIGHTER_TOWER_ID = 'h11D'
+public let CARRION_FIGHTER_MOVE_SPEED = 270
+public let CARRION_FIGHTER_MAX_HP = 525
+public let CARRION_FIGHTER_COST = 120
+public let CARRION_FIGHTER_BASE_DAMAGE = 31
+public let CARRION_FIGHTER_ATTACK_SPEED = 1.0
+public let CARRION_FIGHTER_RANGE = 100
+public let CARRION_FIGHTER_SHORT_DESCRIPTION = "Promote to Carrion Fighter  [|cffFFcc00P|r]"
+public let CARRION_FIGHTER_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff800032-45|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(CARRION_FIGHTER_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(CARRION_FIGHTER_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(CARRION_FIGHTER_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Normal|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Unarmored|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 Lesser Silithid Blood, Unnatural Force|r"
+                                     

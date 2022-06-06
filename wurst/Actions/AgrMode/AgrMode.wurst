@@ -1,0 +1,28 @@
+package AgrMode
+
+import RegisterEvents
+
+
+init
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT) ->
+        if GetSpellAbilityId() == 'A24E'
+            let p = GetTriggerPlayer()
+            let u = GetTriggerUnit()
+            let pid = p.getId() + 1
+            UnitRemoveAbility(u,'A24E')
+            UnitAddAbility(u, 'A24F')
+            if not AgrModeFull[pid]
+                AgrModeFull[pid] = true
+                printTimedToPlayer("Your units now on |cff00ff00GLOBAL|r agro mode", 3, p)
+
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT) ->
+        if GetSpellAbilityId() == 'A24F'
+            let p = GetTriggerPlayer()
+            let u = GetTriggerUnit()
+            let pid = p.getId() + 1
+            UnitRemoveAbility(u,'A24F')
+            UnitAddAbility(u, 'A24E')
+            if  AgrModeFull[pid]
+                AgrModeFull[pid] = false
+                printTimedToPlayer("Your units now on |cff00ffddLOCAL|r agro mode", 3, p)
+

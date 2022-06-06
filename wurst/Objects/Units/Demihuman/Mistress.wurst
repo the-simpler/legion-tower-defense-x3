@@ -1,0 +1,52 @@
+package Mistress
+
+import Seduce
+import MistressData
+import LegionUnit
+import Units
+import Icons
+import ObjectIds
+
+@compiletime function createDarkMage()
+    let necrolyte = new LegionUnit(LegionUnitId(MISTRESS_UNIT_ID, 'hrif'), MISTRESS_TOWER_ID)
+        ..setHotkey("P")
+        ..setName("Mistress")
+        ..setSounds("Demoness")
+        ..setIcon(Icons.bTNBlueDemoness)
+        ..setModel(Units.demonessBlue1)
+        ..setMovespeed(MISTRESS_MOVE_SPEED)
+        ..setHP(MISTRESS_MAX_HP)
+        ..setCost(MISTRESS_COST)
+        ..setPriority(2)
+        ..setFoodCost(2)
+        ..setSize(72)
+        ..setSelectionSize(1.5)
+        ..setRange(MISTRESS_RANGE)
+        ..setBaseDamage(MISTRESS_BASE_DAMAGE)
+        ..setAttackSpeed(MISTRESS_ATTACK_SPEED)
+        ..setBackswingDur(0.500)
+        ..setDamageDur(0.500)
+        ..setArmorType(ArmorType.Large)
+        ..setTooltipShort(MISTRESS_SHORT_DESCRIPTION)
+        ..setTooltipLong(MISTRESS_FULL_DESCRIPTION)
+        ..setAttackType(AttackType.Pierce)
+        ..setWeaponType(WeaponType.Normal)
+        ..setDamageInterval(9)
+        ..setDamageOffset(2)
+        ..setModelSize(1.2)
+        ..setMovementType(MovementType.Foot)
+
+    necrolyte.getTowerInstance()
+        ..setButtonPositionX(0)
+        ..setButtonPositionY(2)
+        ..setNormalAbilities("A05C,A008")
+        ..setManaMaximum(40)
+        ..setManaInitialAmount(40)
+        ..setPointValue(360)
+    necrolyte.getUnitInstance()
+        ..setArmorSoundType(ArmorSoundType.Metal)
+        ..setNormalAbilities(commaList(SEDUCE_FAKE_ID))
+        ..setManaMaximum(40)
+        ..setManaInitialAmount(40)
+        ..setManaRegeneration(1)
+

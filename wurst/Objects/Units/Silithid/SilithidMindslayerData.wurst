@@ -1,0 +1,19 @@
+package SilithidMindslayerData
+
+public let SILITHID_MINDSLAYER_UNIT_ID = 'h68V'
+public let SILITHID_MINDSLAYER_TOWER_ID = 'h58V'
+public let SILITHID_MINDSLAYER_MOVE_SPEED = 270
+public let SILITHID_MINDSLAYER_MAX_HP = 925
+public let SILITHID_MINDSLAYER_COST = 285
+public let SILITHID_MINDSLAYER_BASE_DAMAGE = 135
+public let SILITHID_MINDSLAYER_ATTACK_SPEED = 1.4
+public let SILITHID_MINDSLAYER_RANGE = 500
+public let SILITHID_MINDSLAYER_SHORT_DESCRIPTION = "Deploy Silithid Mindslayer [|cffFFcc00S|r]"
+public let SILITHID_MINDSLAYER_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff8000136-137|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(SILITHID_MINDSLAYER_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(SILITHID_MINDSLAYER_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(SILITHID_MINDSLAYER_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Chaos|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Divine|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 Distortion, Mind Blast|r"
+                                     

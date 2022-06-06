@@ -1,0 +1,21 @@
+package UnnaturalForce
+
+import ObjectIdGenerator
+import AbilityObjEditing
+
+public let UNNATURAL_FORCE_ID = compiletime(ABIL_ID_GEN.next())
+
+@compiletime function createLesserSilithidBlood()
+    new AbilityDefinitionPitLordCleavingAttack(UNNATURAL_FORCE_ID)
+        ..setButtonPositionNormalX(1)
+        ..setButtonPositionNormalY(0)
+        ..setLevels(1)
+        ..setArtCaster("")
+        ..setIconNormal("ReplaceableTextures\\CommandButtons\\UnnaturalForce.blp")
+        ..setName("Unnatural Force")
+        ..setAreaofEffect(1, 175)
+        ..setDistributedDamageFactor(1, 0.1)
+        ..setTooltipNormal(1, "Unnatural Force")
+        ..setTooltipNormalExtended(1, "The creature strikes with such force that 10% of their damage strikes through to enemies near the primary attacked unit")
+
+        

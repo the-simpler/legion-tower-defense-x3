@@ -1,0 +1,32 @@
+package Tripleshot
+
+import ObjectIdGenerator
+import AbilityObjEditing
+
+public let TRIPLESHOT_ID = compiletime(ABIL_ID_GEN.next())
+
+@compiletime function createLesserSilithidBlood()
+    new AbilityDefinitionRocketAttack(TRIPLESHOT_ID)
+        ..setButtonPositionNormalX(1)
+        ..setButtonPositionNormalY(0)
+        ..setLevels(1)
+        ..setArtCaster("")
+        ..setRequirements("")
+        ..setIconNormal("ReplaceableTextures\\CommandButtons\\BTNRanger18.blp")
+        ..setName("Tripleshot")
+        ..setTooltipNormal(1, "Tripleshot")
+        ..setTooltipNormalExtended(1, "Fires needles at three targets each time")
+        ..setMissileArt("Abilities\\Weapons\\BristleBackMissile\\BristleBackMissile.mdl")
+        ..setMissileArc(0.15)
+        ..setMissileSpeed(1100)
+        ..setMissileHomingEnabled(true)
+        ..setTargetAttachments(0)
+        ..setTargetsAllowed(1, "Air,enemies,ground")
+        ..setDurationHero(1, 1)
+        ..setDurationHero(1, 1)
+        ..setCooldown(1, 0)
+        ..setAreaofEffect(1, 800)
+        ..setMaximumNumberofTargets(1, 1)
+        ..setDamagePerTarget(1, 1)
+        ..setMaximumTotalDamage(1, 99999)
+

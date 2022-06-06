@@ -1,0 +1,19 @@
+package SilithidSolipsistData
+
+public let SILITHID_SOLIPSIST_UNIT_ID = 'h88V'
+public let SILITHID_SOLIPSIST_TOWER_ID = 'h78V'
+public let SILITHID_SOLIPSIST_MOVE_SPEED = 270
+public let SILITHID_SOLIPSIST_MAX_HP = 1125
+public let SILITHID_SOLIPSIST_COST = 325
+public let SILITHID_SOLIPSIST_BASE_DAMAGE = 218
+public let SILITHID_SOLIPSIST_ATTACK_SPEED = 1.3
+public let SILITHID_SOLIPSIST_RANGE = 500
+public let SILITHID_SOLIPSIST_SHORT_DESCRIPTION = "Promote to Silithid Solipsist  [|cffFFcc00P|r]"
+public let SILITHID_SOLIPSIST_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff8000219-254|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(SILITHID_SOLIPSIST_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(SILITHID_SOLIPSIST_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(SILITHID_SOLIPSIST_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Chaos|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Divine|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 Distortion, Mind Blast|r"
+                                     

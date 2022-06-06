@@ -1,0 +1,50 @@
+package StackDisableEvents
+
+import StringUtils
+import StackAPI
+import RegisterEvents
+import SwitchStackability
+
+let DISABLE_PHRASE = "-ds"
+let ENABLE_PHRASE = "-es"
+let SHOW_PHRASE = "-ss"
+
+function resolveStackAvailability()
+  let str = GetEventPlayerChatString()
+  if str.startsWith(DISABLE_PHRASE)
+    let p = GetTriggerPlayer()
+    // let args = str.getArgs()
+    // if args.size() == 0
+    StackAPI.disable(p.getId())
+    // else
+    //   for arg in args
+    //     if arg.findPlayerByNameMatch() != null and arg.findPlayerByNameMatch() != p
+    //       StackAPI.disable(p.getId(), arg.findPlayerByNameMatch().getId())
+
+  if str.startsWith(ENABLE_PHRASE)
+    let p = GetTriggerPlayer()
+    // let args = str.getArgs()
+    // if args.size() == 0
+    StackAPI.enable(p.getId())
+    // else
+    //   for arg in args
+    //     if arg.findPlayerByNameMatch() != null and arg.findPlayerByNameMatch() != p
+    //       StackAPI.enable(p.getId(), arg.findPlayerByNameMatch().getId())
+  if str == SHOW_PHRASE
+    StackAPI.showInfo(GetTriggerPlayer().getId())
+
+init
+  let t = CreateTrigger()
+  for i = 0 to 8
+    t..registerPlayerChatEvent(Player(i), DISABLE_PHRASE, false)   
+    t..registerPlayerChatEvent(Player(i), ENABLE_PHRASE, false)         
+    t..registerPlayerChatEvent(Player(i), SHOW_PHRASE, false)         
+  t.addCondition(Condition(function resolveStackAvailability))
+
+  registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_FINISH) ->
+    let id = GetSpellAbilityId()
+    if id == SWITCH_STACKABILITY_ID
+      let pid = GetTriggerPlayer().getId()
+      let tid = GetSpellTargetUnit().getOwner().getId()
+      if pid != tid
+        StackAPI.toggle(pid, tid)

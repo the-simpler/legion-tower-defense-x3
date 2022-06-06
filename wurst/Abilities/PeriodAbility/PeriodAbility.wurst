@@ -1,0 +1,84 @@
+package PeriodAbility
+import DummyCaster
+import ClosureTimers
+import ClosureForGroups
+import OrderIds
+
+trigger periodAbil = CreateTrigger()
+
+function nagaFilter() returns boolean
+  let f = GetFilterUnit()
+  return IsUnitAlly(GetEnumUnit(),f.getOwner()) and GetUnitLifePercent(f) < 93 and UnitHasBuffBJ(f, 'B02T') == false 
+
+function mendFilter() returns boolean
+  let f = GetFilterUnit()
+  return IsUnitAlly(GetEnumUnit(),f.getOwner()) and GetUnitLifePercent(f) != 100 
+
+function forPeriodAbil()
+  let u=GetEnumUnit()
+  let id = u.getTypeId()
+  if u.getTypeId() == 'h18X'
+    if u.getMana() > 50
+      u.setMana(u.getMana() - 25)
+      new DummyCaster()
+      ..owner(u.getOwner())
+      ..delay(1)
+      ..origin(u.getPos())
+      ..castImmediate('A029', 1, OrderIds.fanofknives)
+  if u.getTypeId() == 'h28X'
+    if u.getMana() > 400
+      u.setMana(u.getMana() - 25)
+      new DummyCaster()
+      ..owner(u.getOwner())
+      ..delay(1)
+      ..origin(u.getPos())
+      ..castImmediate('A02C', 1, OrderIds.fanofknives)
+  if id == 'h037' or id == 'h038'
+    if (u.getMaxMana() == u.getMana())
+      let i = id == 'h038' ? 'A02C' : 'A029'
+      u.setMana(0)
+      new DummyCaster()
+        ..owner(u.getOwner())
+        ..delay(1)
+        ..origin(u.getPos())
+        ..castImmediate(i, 1, OrderIds.fanofknives)
+  if id == 'h070' or id == 'h18X'
+    if GetUnitManaPercent(u) == 100
+      forNearestUnit(u.getPos(), 500, Filter(function mendFilter)) (unit x) ->
+        if x != null
+          u.issueTargetOrderById(OrderIds.healingwave, x)
+  if id == 'h086' or id == 'h087' or id == 'h18X'
+    if GetUnitManaPercent(u) == 100
+      forNearestUnit(u.getPos(), 500, Filter(function nagaFilter)) (unit x) ->
+        if x != null
+          if GetRandomInt(1, 3) == 1
+            u.issueTargetOrderById(OrderIds.frostarmor, x)
+
+
+function actPeriodAbil()
+  ForGroup(PeriodAbilGroup, function forPeriodAbil)
+
+function enablePeriodAbil()
+  doAfter(2) ->
+    if PeriodAbilInGame 
+      periodAbil.enable()
+ 
+function enablePer()
+  periodAbil.enable()      
+
+function disablePeriodAbil()
+  periodAbil.disable()
+  PeriodAbilInGame = false
+  PeriodAbilGroup.clear()
+
+init
+  periodAbil.disable()
+  periodAbil.registerTimerEvent(1.0, true)
+  periodAbil.addAction(function actPeriodAbil)
+
+  gg_trg_Spawn_General..addAction(function enablePeriodAbil)
+  gg_trg_Arena_Battle_Count_Down..addAction(function enablePer)
+
+  end_wave_trigger..addCondition(Condition(function disablePeriodAbil))
+  gg_trg_End_Arena_Battle_Handler..addCondition(Condition(function disablePeriodAbil)) 
+

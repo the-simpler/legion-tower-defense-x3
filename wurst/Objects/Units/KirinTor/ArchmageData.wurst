@@ -1,0 +1,19 @@
+package ArchmageData
+
+public let ARCHMAGE_UNIT_ID = 'h18X'
+public let ARCHMAGE_TOWER_ID = 'h18Y'
+public let ARCHMAGE_MOVE_SPEED = 270
+public let ARCHMAGE_MAX_HP = 700
+public let ARCHMAGE_COST = 200
+public let ARCHMAGE_BASE_DAMAGE = 65
+public let ARCHMAGE_ATTACK_SPEED = 1.
+public let ARCHMAGE_RANGE = 500
+public let ARCHMAGE_SHORT_DESCRIPTION = "Deploy Silithid Sorcerer  [|cffFFcc00A|r]"
+public let ARCHMAGE_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff800066-72|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(ARCHMAGE_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(ARCHMAGE_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(ARCHMAGE_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Magic|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Unarmored|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 Conjure lesser magic|r"
+                                     

@@ -1,0 +1,57 @@
+package Meridian
+
+import Haunt
+import MeridianData
+import LegionUnit
+import Units
+import Icons
+import ObjectIds
+
+@compiletime function createMeridian()
+    let necrolyte = new LegionUnit(LegionUnitId(MERIDIAN_UNIT_ID, 'hrif'), MERIDIAN_TOWER_ID)
+        ..setHotkey("P")
+        ..setName("Meridian")
+        ..setSounds("SpiritWalker")
+        ..setIcon(Icons.bTNSpiritWalker)
+        ..setModel(Units.spiritWalker)
+        ..setMovespeed(MERIDIAN_MOVE_SPEED)
+        ..setHP(MERIDIAN_MAX_HP)
+        ..setCost(MERIDIAN_COST)
+        ..setPriority(2)
+        ..setFoodCost(4)
+        ..setSize(72)
+        ..setSelectionSize(1.5)
+        ..setRange(MERIDIAN_RANGE)
+        ..setBaseDamage(MERIDIAN_BASE_DAMAGE)
+        ..setAttackSpeed(MERIDIAN_ATTACK_SPEED)
+        ..setBackswingDur(0.300)
+        ..setDamageDur(0.400)
+        ..setArmorType(ArmorType.Unarmored)
+        ..setTooltipShort(MERIDIAN_SHORT_DESCRIPTION)
+        ..setTooltipLong(MERIDIAN_FULL_DESCRIPTION)
+        ..setAttackType(AttackType.Magic)
+        ..setWeaponType(WeaponType.Missile)
+        ..setProjectileSpeed(0)
+        ..setProjectileArt(".mdl")
+        ..setProjectileArc(0)
+        ..setDamageInterval(8)
+        ..setDamageOffset(4)
+        ..setModelSize(0.9)
+        ..setMovementType(MovementType.Foot)
+
+    necrolyte.getTowerInstance()
+        ..setButtonPositionX(0)
+        ..setButtonPositionY(2)
+        ..setNormalAbilities("A04S,A04R,A04K,A008")
+        ..setManaMaximum(1100)
+        ..setManaInitialAmount(1100)
+        ..setPointValue(675)
+
+    necrolyte.getUnitInstance()
+        ..setArmorSoundType(ArmorSoundType.Flesh)
+        ..setNormalAbilities(commaList(HAUNT_FAKE_ID,'A04S','A04R'))
+        ..setManaMaximum(1100)
+        ..setManaInitialAmount(1100)
+        ..setManaRegeneration(12)
+        
+

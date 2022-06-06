@@ -1,0 +1,44 @@
+package CarrionSwarm
+
+import ObjectIdGenerator
+import AbilityObjEditing
+
+public let CARRION_SWARM_ID = 'A72X'
+
+@compiletime function createCarrionSwarm()
+    new AbilityDefinitionDreadlordCarrionSwarm(CARRION_SWARM_ID)
+        ..setButtonPositionNormalX(0)
+        ..setButtonPositionNormalY(0)
+        ..setLevels(1)
+        ..setArtCaster("")
+        ..setTooltipNormalExtended(1, "Sends a horde of insect's to deal 10 damage to each enemy unit in a cone")
+        ..setAreaofEffect(1, 500)
+        ..setCastRange(1, 700)
+        ..setTargetsAllowed(1, "ground,air,organic,mechanical")
+        ..setMaxDamage(1, 9999)
+        ..setManaCost(1, 8)
+        ..setCooldown(1, 6)
+        ..setDamage(1, 10)
+        ..setDistance(1, 800)
+        ..setFinalArea(1, 500)
+
+public let CARRION_SWARM_BIG_ID = 'A82X'
+
+@compiletime function createCarrionSwarmBig()
+    new AbilityDefinitionDreadlordCarrionSwarm(CARRION_SWARM_BIG_ID)
+        ..setButtonPositionNormalX(0)
+        ..setButtonPositionNormalY(0)
+        ..setLevels(1)
+        ..setArtCaster("")
+        ..setTooltipNormalExtended(1, "Sends a horde of insect's to deal 15 damage to each enemy unit in a cone")
+        ..setAreaofEffect(1, 500)
+        ..setCastRange(1, 700)
+        ..setTargetsAllowed(1, "ground,air,organic,mechanical")
+        ..setMaxDamage(1, 9999)
+        ..setManaCost(1, 8)
+        ..setCooldown(1, 6)
+        ..setDamage(1, 15)
+        ..setDistance(1, 800)
+        ..setFinalArea(1, 500)
+
+               

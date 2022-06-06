@@ -1,0 +1,64 @@
+package Root
+
+import AbilityObjEditing
+import RegisterEvents
+import DummyCaster
+import OrderIds
+
+let ROOT_FAKE_ID = 'A23X'
+
+@compiletime function iceBreathFake()
+  new AbilityDefinitionCurse(ROOT_FAKE_ID)
+    ..setLevels(1)
+    ..setCastRange(1, 800)
+    ..setManaCost(1, 20)
+    ..setCooldown(1, 5)
+    ..setDurationNormal(1, 1)
+    ..setDurationHero(1, 1)
+    ..setChancetoMiss(1, 0)
+    ..setBuffs(1, "")
+    ..setArtCaster("")
+
+
+init
+  registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT) ->
+    if GetSpellAbilityId() == ROOT_FAKE_ID
+      new DummyCaster()
+        ..owner(GetTriggerPlayer())
+        ..delay(10)
+        ..origin(GetTriggerUnit().getPos())
+        ..castTargetWithUserData('A06B', 1, OrderIds.entanglingroots , GetSpellTargetUnit(), GetTriggerUnit().getUserData())
+
+@compiletime function create_w3u_h02Y()
+  createObjectDefinition("w3u", 'h02Y', 'hfoo')
+  ..setInt("ufoo", 0)
+  ..setString("upgr", "R00B,R00C,R009,R00A")
+  ..setInt("uhpm", 665)
+  ..setString("uabi", "A23X")
+  ..setString("ua1g", "enemies")
+  ..setString("utip", "")
+  ..setString("unam", "Guardian")
+  ..setInt("udef", 3)
+  ..setUnreal("ua1c", 1.4)
+  ..setInt("ua1b", 52)
+  ..setString("utub", "")
+  ..setString("uhot", "")
+  ..setUnreal("uhpr", 1.57)
+  ..setString("unsf", "fighter")
+  ..setString("uico", "ReplaceableTextures\\CommandButtons\\BTNTreant.blp")
+  ..setString("umdl", "buildings\\nightelf\\AncientProtector\\AncientProtector.mdl")
+  ..setInt("ua1s", 12)
+  ..setString("utyp", "giant")
+  ..setString("ucs1", "WoodHeavyBash")
+  ..setReal("usca", 0.6)
+  ..setString("usnd", "AncientProtector")
+  ..setString("uarm", "Wood")
+  ..setUnreal("ucol", 20.0)
+  ..setInt("umvs", 240)
+  ..setUnreal("ubs1", 0.6)
+  ..setUnreal("udp1", 0.4)
+  ..setInt("umpi", 20)
+  ..setInt("umpm", 20)
+  ..setUnreal("umpr", 1.0)
+  ..setInt("upoi", 135)
+

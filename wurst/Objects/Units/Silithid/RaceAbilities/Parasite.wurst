@@ -1,0 +1,66 @@
+package Parasite
+
+import AbilityObjEditing
+import ThickSkin
+import ObjectIds
+import RegisterEvents
+import ObjectIdGenerator
+
+public let PARASITE_ID = compiletime(ABIL_ID_GEN.next())
+
+@compiletime function create_w3a_A0GM()
+    new AbilityDefinitionParasite(PARASITE_ID)
+    ..setHotkeyNormal("")
+    ..setHotkeyTurnOff("")
+    ..setButtonPositionNormalX(1)
+    ..setButtonPositionNormalY(0)
+    ..presetCooldown(lvl -> 22)
+    ..presetManaCost(lvl -> 0)
+    ..presetTargetsAllowed(lvl -> "enemies,ground,neutral,nonhero,organic,air")
+    ..setTooltipNormalExtended(1, "Sends a parasite inside enemy. Deal 25 damage per second.")
+    ..presetDamageperSecond(lvl -> 50)
+    ..presetUnitType(lvl -> "h32C")
+    ..presetSummonedUnitDuration(lvl -> 20)
+    ..presetCastRange(lvl -> 900)
+    ..presetDurationNormal(lvl -> 25)  
+
+@compiletime function createParasiteUnit()
+    createObjectDefinition("w3u", 'h32C', 'ucs1')
+    ..setString("uabi", THICK_SKIN_ID.toRawCode()+",AUts")
+    ..setReal("ussc", 1.2)
+    ..setUnreal("uacq", 600.0)
+    ..setUnreal("ua1c", 1.2)
+    ..setInt("ua1b", 22)
+    ..setInt("ua1s", 9)
+    ..setInt("ua1d", 1)
+    ..setInt("udu1", 4)
+    ..setInt("umvs", 240)
+    ..setUnreal("umvr", 3.0)
+    ..setUnreal("ucol", 15.0)
+    ..setInt("ubba", 0)
+    ..setInt("ubdi", 0)
+    ..setInt("uhpm", 325)
+    ..setString("uhrt", "always")
+    ..setInt("upoi", 9)
+    ..setInt("upri", 3)
+    ..setInt("usid", 800)
+    ..setReal("usca", 1.0)
+    ..setUnreal("uhpr", 15.0)
+    ..setInt("ubsi", 0)
+    ..setString("utyp", "summoned,undead")
+    ..setReal("ushh", 100.0)
+    ..setReal("ushw", 100.0)
+    ..setString("ua1g", "enemies,ground,air") 
+
+function clearParasiteGroups()
+    for i = 1 to 8
+        Parasite[i].clear()    
+    
+init
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST) ->
+        let id = GetSpellAbilityId()
+        if id == PARASITE_ID
+            let i = GetSpellAbilityUnit().getUserData()
+            GroupAddUnit(Parasite[i], GetSpellTargetUnit())
+
+    end_wave_trigger.addAction(function clearParasiteGroups)

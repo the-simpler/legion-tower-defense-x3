@@ -1,0 +1,58 @@
+package DarkPriest
+
+import Haunt
+import DarkPriestData
+import LegionUnit
+import Units
+import Abilities
+import Icons
+import ObjectIds
+
+@compiletime function createDarkPriest()
+    let necrolyte = new LegionUnit(LegionUnitId(DARK_PRIEST_UNIT_ID, 'hrif'), DARK_PRIEST_TOWER_ID)
+        ..setHotkey("S")
+        ..setName("Dark Priest")
+        ..setSounds("Acolyte")
+        ..setIcon(Icons.bTNPriest)
+        ..setModel(Units.priest1)
+        ..setMovespeed(DARK_PRIEST_MOVE_SPEED)
+        ..setHP(DARK_PRIEST_MAX_HP)
+        ..setCost(DARK_PRIEST_COST)
+        ..setPriority(2)
+        ..setFoodCost(2)
+        ..setSize(72)
+        ..setSelectionSize(1.5)
+        ..setRange(DARK_PRIEST_RANGE)
+        ..setBaseDamage(DARK_PRIEST_BASE_DAMAGE)
+        ..setAttackSpeed(DARK_PRIEST_ATTACK_SPEED)
+        ..setBackswingDur(0.500)
+        ..setDamageDur(0.500)
+        ..setArmorType(ArmorType.Unarmored)
+        ..setTooltipShort(DARK_PRIEST_SHORT_DESCRIPTION)
+        ..setTooltipLong(DARK_PRIEST_FULL_DESCRIPTION)
+        ..setAttackType(AttackType.Magic)
+        ..setWeaponType(WeaponType.Missile)
+        ..setProjectileSpeed(1800)
+        ..setProjectileArt(Abilities.parasiteMissile)
+        ..setProjectileArc(0)
+        ..setDamageInterval(8)
+        ..setDamageOffset(3)
+        ..setModelSize(1.1)
+        ..setMovementType(MovementType.Foot)
+
+    necrolyte.getTowerInstance()
+        ..setButtonPositionX(1)
+        ..setButtonPositionY(1)
+        ..setNormalAbilities("A04P,A04J,A008")
+        ..setManaMaximum(50)
+        ..setManaInitialAmount(50)
+        ..setPointValue(325)
+        ..setUpgradesTo("h060")
+
+    necrolyte.getUnitInstance()
+        ..setArmorSoundType(ArmorSoundType.Ethereal)
+        ..setNormalAbilities(commaList(HAUNT_FAKE_ID))
+        ..setManaMaximum(50)
+        ..setManaInitialAmount(50)
+        ..setManaRegeneration(3)
+

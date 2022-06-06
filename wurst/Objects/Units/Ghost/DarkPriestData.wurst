@@ -1,0 +1,19 @@
+package DarkPriestData
+
+public let DARK_PRIEST_UNIT_ID = 'h06F'
+public let DARK_PRIEST_TOWER_ID = 'h05Z'
+public let DARK_PRIEST_MOVE_SPEED = 270
+public let DARK_PRIEST_MAX_HP = 690
+public let DARK_PRIEST_COST = 325
+public let DARK_PRIEST_BASE_DAMAGE = 97
+public let DARK_PRIEST_ATTACK_SPEED = 0.82
+public let DARK_PRIEST_RANGE = 700
+public let DARK_PRIEST_SHORT_DESCRIPTION = "Promote to Dark Priest  [|cffFFcc00S|r]"
+public let DARK_PRIEST_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff8000100-121|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(DARK_PRIEST_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(DARK_PRIEST_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(DARK_PRIEST_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Magic|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Unarmored|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 Haunting|r"
+                                     

@@ -1,0 +1,16 @@
+package CorrosiveBreathObject
+
+import AbilityObjEditing
+import ObjectIdGenerator
+
+public let CORROSIVEBREATH_INITIAL_SPELL_ID = 'A25Y'
+
+@compiletime function corrosiveSplitInitialAblity()
+    new AbilityDefinitionCurse(CORROSIVEBREATH_INITIAL_SPELL_ID)
+    ..setLevels(1)
+    ..setCooldown(1, 7)
+    ..setManaCost(1, 10)
+    ..setBuffs(1, "ASDB")
+    ..setChancetoMiss(1, 0)
+    ..setDurationNormal(1, 1)
+    ..setDurationHero(1, 1)

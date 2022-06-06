@@ -1,0 +1,19 @@
+package MistressData
+
+public let MISTRESS_UNIT_ID = 'h073'
+public let MISTRESS_TOWER_ID = 'h06R'
+public let MISTRESS_MOVE_SPEED = 270
+public let MISTRESS_MAX_HP = 1580
+public let MISTRESS_COST = 180
+public let MISTRESS_BASE_DAMAGE = 151
+public let MISTRESS_ATTACK_SPEED = 1.05
+public let MISTRESS_RANGE = 90
+public let MISTRESS_SHORT_DESCRIPTION = "Promote to Mistress  [|cffFFcc00P|r]"
+public let MISTRESS_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff8000153-169|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(MISTRESS_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(MISTRESS_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(MISTRESS_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Pierce|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Heavy|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 Seduce|r"
+                                     

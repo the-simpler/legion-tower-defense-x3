@@ -1,0 +1,31 @@
+package Seduce
+
+import AbilityObjEditing
+import RegisterEvents
+import DummyCaster
+import OrderIds
+import ObjectIdGenerator
+
+public let SEDUCE_FAKE_ID = 'A13X'
+
+
+@compiletime function throwNet()
+    new AbilityDefinitionCurse(SEDUCE_FAKE_ID)
+        ..setLevels(1)
+        ..setCastRange(1, 500)
+        ..setManaCost(1, 40)
+        ..setCooldown(1, 10)
+        ..setDurationNormal(1, 0.1)
+        ..setDurationHero(1, 0.1)
+        ..setBuffs(1, "A12S")
+        ..setArtCaster("")
+
+init
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT) ->
+        if GetSpellAbilityId() == SEDUCE_FAKE_ID
+            new DummyCaster()
+                ..owner(GetTriggerPlayer())
+                ..delay(1)
+                ..origin(GetTriggerUnit().getPos())
+                ..castTarget('A05C', 1, OrderIds.drunkenhaze , GetSpellTargetUnit()) 
+

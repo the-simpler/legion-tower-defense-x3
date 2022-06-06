@@ -1,0 +1,73 @@
+package StuckEffect
+
+import RegisterEvents
+import ObjEditingNatives
+import ClosureTimers
+
+public boolean array stkaiEff
+
+@compiletime function create_w3a_A14E()
+    createObjectDefinition("w3a", 'A34E', 'ACtc')
+    ..setLvlDataUnreal("Ncl1", 1, 1, 0.0)
+    ..setLvlDataInt("Ncl3", 1, 3, 1)
+    ..setLvlDataInt("Ncl5", 1, 5, 0)
+    ..setLvlDataString("Ncl6", 1, 6, "roar")
+    ..setLvlDataString("aani", 0, 0, "")
+    ..setLvlDataString("aart", 0, 0, "ReplaceableTextures\\CommandButtons\\BTNCancel.blp")
+    ..setLvlDataInt("abpx", 0, 0, 3)
+    ..setLvlDataInt("abpy", 0, 0, 1)
+    ..setLvlDataString("acat", 0, 0, "")
+    ..setLvlDataUnreal("acdn", 1, 0, 3.0)
+    ..setLvlDataString("aeat", 0, 0, "")
+    ..setLvlDataInt("aher", 0, 0, 0)
+    ..setLvlDataString("ahky", 0, 1, "F")
+    ..setLvlDataInt("alev", 0, 0, 1)
+    ..setLvlDataInt("amcs", 1, 0, 0)
+    ..setLvlDataString("anam", 0, 0, "Отключить эффект стака")
+    ..setLvlDataString("atat", 0, 0, "Abilities\\Spells\\Undead\\DeathPact\\DeathPactTarget.mdl")
+    ..setLvlDataString("atp1", 1, 0, "[|cffBB3333Отключить эффект стака|r]")
+    ..setLvlDataString("aub1", 1, 0, "Отключить эффект стака.")
+
+@compiletime function create_w3a_A14F()
+    createObjectDefinition("w3a", 'A34F', 'ACtc')
+    ..setLvlDataUnreal("Ncl1", 1, 1, 0.0)
+    ..setLvlDataInt("Ncl3", 1, 3, 1)
+    ..setLvlDataInt("Ncl5", 1, 5, 0)
+    ..setLvlDataString("Ncl6", 1, 6, "roar")
+    ..setLvlDataString("aani", 0, 0, "")
+    ..setLvlDataString("aart", 0, 0, "ReplaceableTextures\\CommandButtons\\BTNManaFlare.blp")
+    ..setLvlDataInt("abpx", 0, 0, 3)
+    ..setLvlDataInt("abpy", 0, 0, 1)
+    ..setLvlDataString("acat", 0, 0, "")
+    ..setLvlDataUnreal("acdn", 1, 0, 3.0)
+    ..setLvlDataString("aeat", 0, 0, "")
+    ..setLvlDataInt("aher", 0, 0, 0)
+    ..setLvlDataString("ahky", 0, 1, "F")
+    ..setLvlDataInt("alev", 0, 0, 1)
+    ..setLvlDataInt("amcs", 1, 0, 0)
+    ..setLvlDataString("anam", 0, 0, "Включить эффект стака")
+    ..setLvlDataString("atat", 0, 0, "Abilities\\Spells\\Undead\\DeathPact\\DeathPactTarget.mdl")
+    ..setLvlDataString("atp1", 1, 0, "[|cff33BB33Включить эффект стака|r]")
+    ..setLvlDataString("aub1", 1, 0, "Включить эффект стака.")   
+init
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT) ->
+        if GetSpellAbilityId() == 'A34E'
+            let u = GetTriggerUnit()
+            let pid = GetTriggerPlayer().getId()+1
+            UnitRemoveAbility(u,'A34E')
+            UnitAddAbility(u, 'A34F')
+            // print("1")
+            // UnitAddAbility(u, 'A06X')
+            // CreateUnit(Player(0), 'h08B', 0, 0, 0)
+            // print("pezda")
+            if  stkaiEff[pid]
+                stkaiEff[pid] = false
+        if GetSpellAbilityId() == 'A34F'
+            let u = GetTriggerUnit()
+            let pid = GetTriggerPlayer().getId()+1
+            UnitRemoveAbility(u,'A34F')
+            UnitAddAbility(u, 'A34E')
+            // print("2") 
+            if not stkaiEff[pid]
+                stkaiEff[pid] = true
+

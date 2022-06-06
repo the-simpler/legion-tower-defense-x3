@@ -1,0 +1,18 @@
+package SantaHat
+
+import AbilityObjEditing
+
+@compiletime function create_w3a_A16D()
+	createObjectDefinition("w3a", 'A16D', 'Asph')
+	..setLvlDataInt("wurs", 0, 0, 42)
+	..setLvlDataString("atat", 0, 0, "Models\\SantaHat.mdl")
+	..setLvlDataString("ata0", 0, 0, "head")
+	..setLvlDataInt("atac", 0, 0, 1)
+
+@compiletime function create_w3a_A26D()
+	createObjectDefinition("w3a", 'A26D', 'Asph')
+	..setLvlDataInt("wurs", 0, 0, 42)
+	..setLvlDataString("atat", 0, 0, "Abilities\\Weapons\\ZigguratFrostMissile\\ZigguratFrostMissile.mdl")
+	..setLvlDataString("ata0", 0, 0, "origin")
+	..setLvlDataInt("atac", 0, 0, 1)
+

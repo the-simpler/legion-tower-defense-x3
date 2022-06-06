@@ -1,0 +1,19 @@
+package SilithidFlyData
+
+public let SILITHID_FLY_UNIT_ID = 'h21H'
+public let SILITHID_FLY_TOWER_ID = 'h11H'
+public let SILITHID_FLY_MOVE_SPEED = 270
+public let SILITHID_FLY_MAX_HP = 175
+public let SILITHID_FLY_COST = 60
+public let SILITHID_FLY_BASE_DAMAGE = 18
+public let SILITHID_FLY_ATTACK_SPEED = 0.75
+public let SILITHID_FLY_RANGE = 675
+public let SILITHID_FLY_SHORT_DESCRIPTION = "Deploy Silithid Fly  [|cffFFcc00W|r]"
+public let SILITHID_FLY_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff800019-27|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(SILITHID_FLY_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(SILITHID_FLY_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(SILITHID_FLY_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Pierce|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Unarmored|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 Lesser Silithid Blood|r"
+                                     

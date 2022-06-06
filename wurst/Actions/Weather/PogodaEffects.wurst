@@ -1,0 +1,46 @@
+package PogodaEffects
+
+weathereffect array wethEff 
+
+let pogoda = [0, 'SNls', 'SNbs', 'WOlw', 'WNcw', 'LRma', 'RLhr', 'RLlr', 'LRaa']
+// let lightTer = ["Environment\\DNC\\DNCDalaran\\DNCDalaranTerrain\\DNCDalaranTerrain.mdl","Environment\\DNC\\DNCLordaeron\\DNCLordaeronTerrain\\DNCLordaeronTerrain.mdl","Environment\\DNC\\DNCFelwood\\DNCFelwoodTerrain\\DNCFelwoodTerrain.mdl","Environment\\DNC\\DNCDungeon\\DNCDungeonTerrain\\DNCDungeonTerrain.mdl"]
+// let lightUn = ["Environment\\DNC\\DNCDalaran\\DNCDalaranUnit\\DNCDalaranUnit.mdl","Environment\\DNC\\DNCLordaeron\\DNCLordaeronUnit\\DNCLordaeronUnit.mdl","Environment\\DNC\\DNCFelwood\\DNCFelwoodUnit\\DNCFelwoodUnit.mdl","Environment\\DNC\\DNCDungeon\\DNCDungeonUnit\\DNCDungeonUnit.mdl"]
+
+function weatherEffect()
+    let p = GetTriggerPlayer()
+    let pid = p.getId()
+    let i = (S2I(SubString(GetEventPlayerChatString(),9,StringLength(GetEventPlayerChatString()))))
+    if i >= 0 and i <= 8
+        let wid = pogoda[i]
+        if wid == 0
+            if p == GetLocalPlayer()
+                RemoveWeatherEffect(wethEff[pid])
+        else
+            if p == GetLocalPlayer()
+                RemoveWeatherEffect(wethEff[pid])
+                wethEff[pid] = AddWeatherEffect(bj_mapInitialPlayableArea, wid)
+                EnableWeatherEffect(wethEff[pid], true)
+   
+                
+// function lightEffect()
+//     let p = GetTriggerPlayer()
+//     let i = (S2I(SubString(GetEventPlayerChatString(),7,StringLength(GetEventPlayerChatString()))))
+//     if i >= 0 and i <= 3
+//         let lid = lightTer[i]
+//         let uid = lightUn[i]
+//         if p == GetLocalPlayer()
+//             SetDayNightModels(lid,uid)
+
+
+
+
+init
+    let t = CreateTrigger()
+    for i = 0 to 7
+        t.registerPlayerChatEvent(Player(i), "-weather", false)
+    t.addAction(function weatherEffect)
+
+    // let t2 = CreateTrigger()
+    // for i = 0 to 7
+    //     t2.registerPlayerChatEvent(Player(i), "-light", false)
+    // t2.addAction(function lightEffect)  

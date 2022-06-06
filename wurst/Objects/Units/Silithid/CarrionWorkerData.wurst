@@ -1,0 +1,19 @@
+package CarrionWorkerData
+
+public let CARRION_WORKER_UNIT_ID = 'h21C'
+public let CARRION_WORKER_TOWER_ID = 'h11C'
+public let CARRION_WORKER_MOVE_SPEED = 270
+public let CARRION_WORKER_MAX_HP = 95
+public let CARRION_WORKER_COST = 15
+public let CARRION_WORKER_BASE_DAMAGE = 8
+public let CARRION_WORKER_ATTACK_SPEED = 1.0
+public let CARRION_WORKER_RANGE = 100
+public let CARRION_WORKER_SHORT_DESCRIPTION = "Deploy Carrion Worker  [|cffFFcc00Q|r]"
+public let CARRION_WORKER_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff80009-16|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(CARRION_WORKER_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(CARRION_WORKER_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(CARRION_WORKER_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Normal|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Unarmored|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 None|r"
+                                     

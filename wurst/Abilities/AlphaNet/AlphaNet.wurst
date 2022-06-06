@@ -1,0 +1,31 @@
+package AlphaNet
+
+
+import AbilityObjEditing
+import RegisterEvents
+import DummyCaster
+import OrderIds
+
+public let THROW_NET_FAKE_ID = 'A12X'
+
+
+@compiletime function throwNet()
+    new AbilityDefinitionCurse(THROW_NET_FAKE_ID)
+        ..setLevels(1)
+        ..setCastRange(1, 500)
+        ..setManaCost(1, 20)
+        ..setCooldown(1, 5)
+        ..setDurationNormal(1, 0.1)
+        ..setDurationHero(1, 0.1)
+        ..setBuffs(1, "A12S")
+        ..setArtCaster("")
+
+init
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT) ->
+        if GetSpellAbilityId() == THROW_NET_FAKE_ID
+            new DummyCaster()
+                ..owner(GetTriggerPlayer())
+                ..delay(1)
+                ..origin(GetTriggerUnit().getPos())
+                ..castTarget('A056', 1, OrderIds.ensnare , GetSpellTargetUnit()) 
+

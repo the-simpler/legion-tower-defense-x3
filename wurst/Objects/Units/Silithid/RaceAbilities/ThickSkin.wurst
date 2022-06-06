@@ -1,0 +1,44 @@
+package ThickSkin
+
+import ObjectIdGenerator
+import AbilityObjEditing
+
+public let THICK_SKIN_ID = compiletime(ABIL_ID_GEN.next())
+public let L_THICK_SKIN_ID = compiletime(ABIL_ID_GEN.next())
+
+@compiletime function createLesserSilithidBlood()
+    new AbilityDefinitionHardenedSkin(THICK_SKIN_ID)
+        ..setButtonPositionNormalX(1)
+        ..setButtonPositionNormalY(0)
+        ..setLevels(1)
+        ..setArtCaster("")
+        ..setRequirements("")
+        ..setIconNormal("ReplaceableTextures\\CommandButtons\\BTNReinforcedHides.blp")
+        ..setName("Thick Skin")
+        ..setTooltipNormal(1, "Thick Skin")
+        ..setTooltipNormalExtended(1, "50% chance to reduce damage taken by 75 every time this unit is attacked. If the attack deals less than 50 damage, it will deal 3 damage.")
+        ..setChancetoReduceDamage(1, 50)
+        ..setMinimumDamage(1, 3)
+        ..setIgnoredDamage(1, 75)
+        ..setIncludeMeleeDamage(1, true)
+        ..setIncludeRangedDamage(1, true)
+
+
+@compiletime function createL4SilithidBlood()
+    new AbilityDefinitionHardenedSkin(L_THICK_SKIN_ID)
+        ..setButtonPositionNormalX(1)
+        ..setButtonPositionNormalY(0)
+        ..setLevels(1)
+        ..setArtCaster("")
+        ..setRequirements("")
+        ..setIconNormal("ReplaceableTextures\\CommandButtons\\BTNReinforcedHides.blp")
+        ..setName("Thick Skin")
+        ..setTooltipNormal(1, "Thick Skin")
+        ..setTooltipNormalExtended(1, "30% chance to reduce damage taken by 50 every time this unit is attacked. If the attack deals less than 50 damage, it will deal 3 damage.")
+        ..setChancetoReduceDamage(1, 30)
+        ..setMinimumDamage(1, 3)
+        ..setIgnoredDamage(1, 50)
+        ..setIncludeMeleeDamage(1, true)
+        ..setIncludeRangedDamage(1, true)
+
+    

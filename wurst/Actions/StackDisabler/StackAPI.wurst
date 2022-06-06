@@ -1,0 +1,52 @@
+package StackAPI
+
+import Display
+import Colorizer
+import StackFlags
+
+public class StackAPI
+  static function showInfo(int pid)
+    for i = 0 to 12
+      if players[i].isIngame() and players[i].isAllyOf(players[pid]) 
+        Display.toPlayer("{0}: {1}".format( Colorizer.colorizeByPlayerId(players[i].getName(), i), StackFlags.isDisabled(pid, i).toString()), 7, players[pid])
+
+  static function disable(int pid)
+    for i = 0 to 11
+      if players[i].isIngame() and players[i].isAllyOf(players[pid]) and pid != i
+        disable(pid, i)
+    notificateDisable(pid)
+  static function disable(int pid, int tid)
+    StackFlags.disable(pid, tid)
+    notificateDisable(pid, tid)
+
+  static function enable(int pid)
+    for i = 0 to 11
+      if players[i].isIngame() and players[i].isAllyOf(players[pid]) and pid != i
+        enable(pid, i)
+    notificateEnable(pid)    
+  static function enable(int pid, int tid)
+    StackFlags.enable(pid, tid)
+    notificateEnable(pid, tid)
+    
+  static function toggle(int pid, int tid)
+    StackFlags.toggle(pid, tid)
+    if StackFlags.isDisabled(pid, tid)
+      notificateDisable(pid, tid)
+    else
+      notificateEnable(pid, tid)
+
+  private static function notificateDisable(int pid)
+    Display.toTeamAndObs(generateMessage("forbid", pid), 7., players[pid].getTeam())
+  private static function notificateDisable(int pid, int tid)
+    Display.toTeamAndObs(generateMessage("forbid", pid, tid), 7., players[pid].getTeam())
+  private static function notificateEnable(int pid)
+    Display.toTeamAndObs(generateMessage("allow", pid), 7., players[pid].getTeam())
+  private static function notificateEnable(int pid, int tid)
+    Display.toTeamAndObs(generateMessage("allow", pid, tid), 7., players[pid].getTeam())
+
+  private static function generateMessage(string action, int pid) returns string
+    return "{0} {1} to stack his units his entire team".format(Colorizer.colorizeByPlayerId(players[pid].getName(), pid), action)
+  private static function generateMessage(string action, int pid, int tid) returns string
+    return "{0} {1} to stack his units to {2}".format(Colorizer.colorizeByPlayerId(players[pid].getName(), pid), action,
+                                                    Colorizer.colorizeByPlayerId(players[tid].getName(), players[tid].getId()))
+

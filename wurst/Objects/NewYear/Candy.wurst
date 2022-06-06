@@ -1,0 +1,156 @@
+// package Candy
+// 
+// import RegisterEvents
+// import ObjEditingNatives
+// import LinkedList
+// 
+// // public integer array candy
+// public let candy = new LinkedList<int>()..add(0, 0, 0, 0, 0, 0, 0, 0)
+// 
+// sound reindeer 
+// 
+// @compiletime function create_w3u_u00T()
+// 	createObjectDefinition("w3u", 'h724', 'uaco')
+// 	..setInt("wurs", 42)
+// 	..setString("uabi", "A26D,A16D")
+// 	..setUnreal("ucol", 1.0)
+// 	..setInt("umvs", 400)
+// 	..setInt("uaen", 0)
+// 	..setInt("upoi", 0)
+// 	..setString("umvt", "fly")
+// 	..setString("upgr", "")
+// 	..setInt("uhpm", 150000)
+// 	..setString("unam", "Crampus!")
+// 	..setString("utip", "Crampus!")
+// 	..setString("utub", "Crampus")
+// 	..setString("uhot", "")
+// 	..setString("umdl", "Models\\GrimReaper.mdl")
+// 	..setString("uico", "ReplaceableTextures\\CommandButtons\\BTNMedivh.blp")
+// 	..setString("usnd", "DruidoftheTalon")
+// 	..setInt("ufoo", 0)
+// 	..setInt("ugol", 0)
+// 	..setInt("ubld", 1)
+// 	..setString("ureq", "u00F")
+// 	..setReal("ussc", 1.5)
+// 	..setReal("usca", 1.3)
+// 	..setUnreal("uhpr", -0.1)
+// 	..setUnreal("ucpt", 0.001)
+// 	..setInt("uscb", 0)
+// 	..setInt("usid", 400)
+// 	..setInt("usin", 400)
+// 	..setString("ubui", "")
+//     ..setString("ures", "R00I,R00G")
+//     ..setInt("uhom", 1)
+// 
+// @compiletime function createParasiteUnit()
+//     createObjectDefinition("w3u", 'h723', 'ucs1')
+//     ..setString("uabi", "")
+//     ..setReal("ussc", 1.2)
+//     ..setUnreal("uacq", 600.0)
+//     ..setUnreal("ua1c", 1.2)
+//     ..setInt("ua1b", 22)
+//     ..setInt("ua1s", 9)
+//     ..setInt("ua1d", 1)
+//     ..setInt("udu1", 4)
+//     ..setInt("umvs", 240)
+//     ..setUnreal("umvr", 3.0)
+//     ..setUnreal("ucol", 15.0)
+//     ..setInt("ubba", 0)
+//     ..setInt("ubdi", 0)
+//     ..setInt("uhpm", 325)
+//     ..setString("uhrt", "always")
+//     ..setInt("upoi", 9)
+//     ..setInt("upri", 3)
+//     ..setInt("usid", 800)
+// 
+//     ..setReal("usca", 1.0)
+//     ..setUnreal("uhpr", 15.0)
+//     ..setInt("ubsi", 0)
+//     ..setString("utyp", "summoned,undead")
+//     ..setReal("ushh", 100.0)
+//     ..setReal("ushw", 100.0)
+//     ..setString("ua1g", "enemies,ground,air") 
+//     ..setString("umdl", "Models\\Present.mdl")
+//     ..setString("unam", "Click me!")
+//     ..setReal("usca", 0.5)
+//     ..setInt("uhom", 1) 
+// 
+// function updateCandies()
+//     
+//     for i = 0 to 7
+//         if players[i].isIngame()
+//             MultiboardSetItemValueBJ(udg_Scoreboard, 6, udg_ScoreboardRow[i + 1],"|cffff0000" + candy.get(i).toString() + "|r")
+//             // udg_Scoreboard.setItemValue(udg_ScoreboardRow[i + 1], 5, candy[i])
+// 
+// function onMultiboardInitialized()
+//     udg_Scoreboard.setItemValue(0, 5, "|cffFFcc00Candies|r")
+//     for i = 0 to udg_Scoreboard.getRowCount() - 1
+//         udg_Scoreboard.getItem(i, 5).setStyle(true, false)
+//     MultiboardSetItemWidthBJ(udg_Scoreboard,6,0,4.00)
+//     updateCandies()
+// 
+// function displayCandies(int pid) 
+//     DisplayTimedTextToPlayer(players[pid], 0, 0, 5, 
+//     "Congratulations! You have found sweet |cffff0000Candy!|r You have "
+//     +candy.get(pid).toString()+" now!")
+// 
+// init
+//     OnMultiboardInitialized.addCondition(Condition(function onMultiboardInitialized))
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+//     // reindeer = CreateSound("reindeer.mp3",false,true,false,10,10,"")
+//     reindeer = CreateSound("war3mapImported\\reindeer.mp3",false,false,false,$7F,$7F,"DefaultEAXON")
+//     SetSoundDuration(reindeer,5374)
+//     SetSoundChannel(reindeer,0)
+//     SetSoundVolume(reindeer,1450)
+//     SetSoundPitch(reindeer,1.)
+//     registerPlayerUnitEvent(EVENT_PLAYER_UNIT_DEATH) ->
+//         let u = GetDyingUnit()
+//         if IsUnitInGroup(u, CandyGroup)
+//             let u2 = GetKillingUnit()
+//             if u2 != null
+//                 let data = u2.getUserData() - 1
+//                 candy.set(data, candy.get(data) + 1)
+//                 CandyGroup.removeUnit(u)
+//                 displayCandies(data)
+//                 if Player(data) == GetLocalPlayer()
+//                     PlaySoundBJ(reindeer)
+//                 updateCandies()
+//                 showUnitTextPlayer(u, "+"+I2S(1), 255, 0, 0, players[data])
+//             
+//             // udg_Scoreboard.setItemValue(udg_ScoreboardRow[i + 1], 6, candy[i])
+//     registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SELECTED) ->
+//         let u = GetTriggerUnit()
+//         let id = u.getTypeId()
+//         let pid = GetTriggerPlayer().getId()
+//         if id == 'h723'
+//             let intt = GetRandomInt(1, 3)
+//             candy.set(pid, candy.get(pid) + intt)
+//             displayCandies(pid)
+//             if Player(pid) == GetLocalPlayer()
+//                 PlaySoundBJ(reindeer)
+//             updateCandies()
+//             showUnitTextPlayer(u, "+"+I2S(intt), 255, 0, 0, players[pid])
+//             u.remove()
+//         if id == 'h724'
+//             candy.set(pid, candy.get(pid) + 5)
+//             displayCandies(pid)
+//             if Player(pid) == GetLocalPlayer()
+//                 PlaySoundBJ(reindeer)
+//             updateCandies()
+//             Crampus1.removeUnit(u)
+//             Crampus2.removeUnit(u)
+//             showUnitTextPlayer(u, "+"+I2S(5), 255, 0, 0, players[pid])
+//             u.remove()

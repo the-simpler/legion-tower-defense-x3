@@ -1,0 +1,19 @@
+package MutaliskData
+
+public let MUTALISK_UNIT_ID = 'h61H'
+public let MUTALISK_TOWER_ID = 'h51H'
+public let MUTALISK_MOVE_SPEED = 270
+public let MUTALISK_MAX_HP = 460
+public let MUTALISK_COST = 105
+public let MUTALISK_BASE_DAMAGE = 126
+public let MUTALISK_ATTACK_SPEED = 3.05
+public let MUTALISK_RANGE = 300
+public let MUTALISK_SHORT_DESCRIPTION = "Deploy Mutalisk  [|cffFFcc00E|r]"
+public let MUTALISK_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff8000127-135|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(MUTALISK_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(MUTALISK_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(MUTALISK_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Magic|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Unarmored|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 Acid Breath|r"
+                                     

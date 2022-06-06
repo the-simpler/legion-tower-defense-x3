@@ -1,0 +1,6 @@
+package CacheStore
+
+public gamecache MAP_CACHE
+
+init
+    MAP_CACHE = InitGameCache("dr.x")

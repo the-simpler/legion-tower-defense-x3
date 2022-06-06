@@ -1,0 +1,30 @@
+package RollInfo
+
+import RollPosStore
+import RegisterEvents
+
+public texttag array rollTextTag
+
+public function createRollTextTag(player p, int rollsCount)
+  let i = p.getId()
+  let pos = RollPosStore.r1positions[i].toVec3()
+  rollTextTag[i].destr()
+  let message = rollsCount == 5 ? "Next roll: |cffff0000No rolls left|r" : "Next roll: |cffffe600{0}|r/|cff1a8d33{0}|r".format((50 * rollsCount).toString())
+  rollTextTag[i] = createTTEx(pos, message, 10)
+  rollTextTag[i].setPermanent(true)
+  ShowTextTagForceBJ(false, rollTextTag[i], bj_FORCE_ALL_PLAYERS)
+  let forci = i < 4 ? WestForce : EastForce
+  ShowTextTagForceBJ(true, rollTextTag[i], forci)
+
+function initTextTag()
+  for i = 0 to 7
+    if players[i].isIngame() and not IsPlayerObserver(players[i])
+      createRollTextTag(players[i], 0)
+
+init
+  initTextTag()
+  registerPlayerUnitEvent(EVENT_PLAYER_UNIT_RESEARCH_FINISH) ->
+    if GetResearched() == 'R00G'
+      let p = GetTriggerPlayer()
+      let i = GetPlayerTechCountSimple('R00G', p)
+      createRollTextTag(p, i)

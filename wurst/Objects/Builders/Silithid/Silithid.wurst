@@ -1,0 +1,8 @@
+package Silithid
+import SilithidCreator
+
+public let SILITHID_ID = 'u019'
+
+
+@compiletime function createSilithid()
+    SilithidCreator.createSilithid(SILITHID_ID)

@@ -1,0 +1,20 @@
+package RoyalSilithidBlood
+
+import ObjectIdGenerator
+import AbilityObjEditing
+
+public let ROYAL_SILITHID_BLOOD_ID = compiletime(ABIL_ID_GEN.next())
+
+@compiletime function createLesserSilithidBlood()
+    new AbilityDefinitionRocketAttack(ROYAL_SILITHID_BLOOD_ID)
+        ..setButtonPositionNormalX(0)
+        ..setButtonPositionNormalY(0)
+        ..setLevels(1)
+        ..setArtCaster("")
+        ..setRequirements("")
+        ..setIconNormal("ReplaceableTextures\\CommandButtons\\BTNWIcon260.blp")
+        ..setName("Royal Silithid Blood")
+        ..setTooltipNormal(1, "Royal Silithid Blood")
+        ..setTooltipNormalExtended(1, "This creature regenerate 25 hp per second")
+
+    

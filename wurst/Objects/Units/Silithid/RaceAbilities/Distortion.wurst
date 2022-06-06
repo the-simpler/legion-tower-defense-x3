@@ -1,0 +1,57 @@
+package Distortion
+
+import ObjectIdGenerator
+import AbilityObjEditing
+import BuffObjEditing
+import ObjectIds
+
+public let LESSER_DISTORTION_ID = compiletime(ABIL_ID_GEN.next())
+public let HIGHER_DISTORTION_ID = compiletime(ABIL_ID_GEN.next())
+let LESSER_DISTORION_BUFF_ID = compiletime(BUFF_ID_GEN.next())
+let HIGHER_DISTORION_BUFF_ID = compiletime(BUFF_ID_GEN.next())
+
+@compiletime function createLesserDistortionBuff()
+    new BuffDefinition(LESSER_DISTORION_BUFF_ID, 'BOae')
+        ..setIconNormal(1, "ReplaceableTextures\\CommandButtons\\BTNWIcon392.blp")
+        ..setTooltipNormal(1, "Distortion")
+        ..setTooltipNormalExtended(1, "This unit has reduced attack speed.")
+
+@compiletime function createHigherDistortionBuff()
+    new BuffDefinition(HIGHER_DISTORION_BUFF_ID, 'BOae')
+        ..setIconNormal(1, "ReplaceableTextures\\CommandButtons\\BTNWIcon392.blp")
+        ..setTooltipNormal(1, "Distortion")
+        ..setTooltipNormalExtended(1, "This unit has reduced attack speed.")
+
+
+@compiletime function createLesserSilithidBlood()
+    new AbilityDefinitionTaurenChieftainEnduranceAura(LESSER_DISTORTION_ID)
+        ..setButtonPositionNormalX(0)
+        ..setButtonPositionNormalY(0)
+        ..setLevels(1)
+        ..setArtTarget("")
+        ..setIconNormal("ReplaceableTextures\\CommandButtons\\BTNWIcon392.blp")
+        ..setName("Distortion")
+        ..setTooltipNormal(1, "Distortion")
+        ..setTooltipNormalExtended(1, "Endless stream of distortion flows through enemys mind, cause 5% attack rate reduction")
+        ..setTargetsAllowed(1, "air,enemy,ground,organic,mechanical,structure")
+        ..setAreaofEffect(1, 1000)
+        ..setAttackSpeedIncrease(1, -0.04)
+        ..setMovementSpeedIncrease(1, 0)
+        ..setBuffs(1, LESSER_DISTORION_BUFF_ID.toRawCode())
+ 
+@compiletime function createHigherSilithidBlood()
+    new AbilityDefinitionTaurenChieftainEnduranceAura(HIGHER_DISTORTION_ID)
+        ..setButtonPositionNormalX(0)
+        ..setButtonPositionNormalY(0)
+        ..setLevels(1)
+        ..setArtTarget("")
+        ..setIconNormal("ReplaceableTextures\\CommandButtons\\BTNWIcon392.blp")
+        ..setName("Distortion")
+        ..setTooltipNormal(1, "Distortion")
+        ..setTooltipNormalExtended(1, "Endless stream of distortion flows through enemys mind, cause 10% attack rate reduction")
+        ..setTargetsAllowed(1, "air,enemy,ground,organic,mechanical,structure")
+        ..setAreaofEffect(1, 1000)
+        ..setAttackSpeedIncrease(1, -0.08)
+        ..setMovementSpeedIncrease(1, 0)
+        ..setBuffs(1, HIGHER_DISTORION_BUFF_ID.toRawCode())
+       

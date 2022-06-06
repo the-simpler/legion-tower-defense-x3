@@ -1,0 +1,26 @@
+package FastFinish_event
+
+import FastFinish
+import Colorizer
+
+function voteFF()
+    FastFinish.countPlayers()
+    FastFinish.vote(GetTriggerPlayer())
+
+function resetFFWhenLeave()
+    let p = GetTriggerPlayer()
+    let pid = p.getId()
+    let team = R2I(pid / 4)
+    if FastFinish.voteActive[team]
+        FastFinish.reset(team)
+        printTimed("{0} leave. Voting has closed".format(Colorizer.colorizeByPlayerId(p.getName(), pid)), 7)
+init
+    let t = CreateTrigger()
+    for i = 0 to 8
+        t..registerPlayerChatEvent(Player(i), "-ff", true)         
+    t.addCondition(Condition(function voteFF))
+
+    let t2 = CreateTrigger()
+    for i = 0 to 8
+        TriggerRegisterPlayerEventLeave(t2,Player(i))
+    t2.addCondition(Condition(function resetFFWhenLeave))

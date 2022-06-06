@@ -1,0 +1,112 @@
+package KingAntiStop
+import Colorizer
+import RegisterEvents
+
+public trigger t5
+
+public integer wTi
+public integer eTi
+public integer wFi
+public integer eFi
+public integer kingWNotAttackingTi
+public integer kingENotAttackingTi
+
+function mainPerioidKingFunc()
+    // print("--")
+    // print(wTi)
+    // print(eTi)
+    // print(wFi)
+    // print(eFi)
+    // print(kingWNotAttackingTi)
+    // print(kingENotAttackingTi)
+    // print("---")
+    // kingWNotAttackingTi = kingWNotAttackingTi + 1
+    // kingENotAttackingTi = kingENotAttackingTi + 1
+    // if kingWNotAttackingTi <= 10
+    //     wTi = wTi + 1
+    // else
+    //     wTi = 0
+    // if kingENotAttackingTi <= 10
+    //     eTi = eTi + 1
+    // else
+    //     eTi = 0
+    if wFi != 0
+        wFi = wFi - 1
+    if eFi != 0
+        eFi = eFi - 1
+    // if wTi >= 24 
+    //     let p = GetOwningPlayer(H6)
+    //     wTi = 0
+    //     wFi = 0
+    //     if p == Keek
+    //         print("{0} stopped king, she has been kicked (TimeElapsed)".format(Colorizer.colorizeByPlayerId(p.getName(), p.getId())))
+    //         EndGame(false)
+    // if eTi >= 24 
+    //     let p = GetOwningPlayer(U6)
+    //     eTi = 0
+    //     eFi = 0
+    //     if p == Keek
+    //         print("{0} stopped king, she has been kicked (TimeElapsed)".format(Colorizer.colorizeByPlayerId(p.getName(), p.getId())))
+    //         EndGame(false)
+    if wFi > 5
+        let p = GetOwningPlayer(gg_unit_h00K_0009)
+        wTi = 0
+        wFi = 0
+        if p == GetLocalPlayer()
+            print("{0} stopped king, she has been kicked (FullStop)".format(Colorizer.colorizeByPlayerId(p.getName(), p.getId())))
+            EndGame(false)
+    if eFi > 5
+        let p = GetOwningPlayer(gg_unit_h00K_0006)
+        eTi = 0
+        eFi = 0
+        if p == GetLocalPlayer()
+            print("{0} stopped king, she has been kicked (FullStop)".format(Colorizer.colorizeByPlayerId(p.getName(), p.getId())))            
+            EndGame(false)
+// function onWKingAttack()
+//     kingWNotAttackingTi = 0
+// function onEKingAttack()
+//     kingENotAttackingTi = 0
+
+function onKingAcc()
+    let u = GetAttacker() 
+    if u == gg_unit_h00K_0009
+        wFi = wFi + 1
+    if u == gg_unit_h00K_0006
+        eFi = eFi + 1
+
+
+init
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_DEATH) ->
+        let u = GetKillingUnit()
+        if u == gg_unit_h00K_0009 
+            wTi = 0
+            wFi = 0
+        if u == gg_unit_h00K_0006
+            eTi = 0
+            eFi = 0
+    
+    //let t = CreateTrigger()
+    //t.registerUnitEvent(H6, EVENT_UNIT_ATTACKED)
+    //t.addAction(function onWKingAttack)
+//
+    //let t2 = CreateTrigger()
+    //t2.registerUnitEvent(U6, EVENT_UNIT_ATTACKED)
+    //t2.addAction(function onEKingAttack)
+
+    let t3 = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(t3, EVENT_PLAYER_UNIT_ATTACKED)
+    t3.addAction(function onKingAcc)
+
+    t5 = CreateTrigger()
+    t5.registerTimerEvent(0.5, true)
+    t5.addAction(function mainPerioidKingFunc)
+
+    wTi = 0
+    eTi = 0
+    wFi = 0
+    eFi = 0
+    kingWNotAttackingTi = 0
+    kingENotAttackingTi = 0
+
+
+

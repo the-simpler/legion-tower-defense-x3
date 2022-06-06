@@ -1,0 +1,9 @@
+package PreloadAbilities
+
+init
+    let u = CreateUnit(Player(12), 'u006', 0, 0, 180)
+    u.addAbility('A05O')
+    u.addAbility('A05P')
+    u.removeAbility('A05O')
+    u.removeAbility('A05P')
+    u.remove()

@@ -1,0 +1,55 @@
+package SilithidWithcer
+
+import SilithidWithcerData
+import CarrionSwarm
+import LegionUnit
+import ObjectIds
+import Parasite
+
+@compiletime function createMutalisk()
+    let mutalisk = new LegionUnit(LegionUnitId(SILITHID_WITHCER_UNIT_ID, 'hrif'), SILITHID_WITHCER_TOWER_ID)
+        ..setHotkey("P")
+        ..setName("Silithid Withcer")
+        ..setSounds("SpiritOfVengeance")
+        ..setIcon("ReplaceableTextures\\CommandButtons\\BTNNerubianWidow.blp")
+        ..setModel("Models\\Drone.mdl")
+        ..setMovespeed(SILITHID_WITHCER_MOVE_SPEED)
+        ..setHP(SILITHID_WITHCER_MAX_HP)
+        ..setCost(SILITHID_WITHCER_COST)
+        ..setPriority(2)
+        ..setFoodCost(3)
+        ..setSize(32)
+        ..setSelectionSize(1.5)
+        ..setRange(SILITHID_WITHCER_RANGE)
+        ..setBaseDamage(SILITHID_WITHCER_BASE_DAMAGE)
+        ..setAttackSpeed(SILITHID_WITHCER_ATTACK_SPEED)
+        ..setBackswingDur(0.200)
+        ..setDamageDur(0.200)
+        ..setArmorType(ArmorType.Unarmored)
+        ..setTooltipShort(SILITHID_WITHCER_SHORT_DESCRIPTION)
+        ..setTooltipLong(SILITHID_WITHCER_FULL_DESCRIPTION)
+        ..setAttackType(AttackType.Magic)
+        ..setWeaponType(WeaponType.Missile)
+        ..setProjectileSpeed(1400)
+        ..setProjectileArt("Models\\Needle.mdl")
+        ..setProjectileArc(0.2)
+        ..setDamageInterval(5)
+        ..setDamageOffset(1)
+        ..setModelSize(1.3)
+        ..setMovementType(MovementType.Foot)
+
+    mutalisk.getTowerInstance()
+        ..setButtonPositionX(0)
+        ..setButtonPositionY(2)
+        ..setNormalAbilities("A008,"+CARRION_SWARM_BIG_ID.toRawCode()+","+PARASITE_ID.toRawCode())
+        ..setManaMaximum(8)
+        ..setManaInitialAmount(8)
+        ..setPointValue(430)
+    mutalisk.getUnitInstance()
+        ..setArmorSoundType(ArmorSoundType.Flesh)
+        ..setNormalAbilities(CARRION_SWARM_BIG_ID.toRawCode()+","+PARASITE_ID.toRawCode())
+        ..setManaMaximum(8)
+        ..setManaInitialAmount(8)
+        ..setManaRegeneration(0.9)
+        ..setAttack1ProjectileHomingEnabled(true)
+

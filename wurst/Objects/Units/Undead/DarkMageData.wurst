@@ -1,0 +1,19 @@
+package DarkMageData
+
+public let DARK_MAGE_UNIT_ID = 'h03D'
+public let DARK_MAGE_TOWER_ID = 'h01S'
+public let DARK_MAGE_MOVE_SPEED = 420
+public let DARK_MAGE_MAX_HP = 375
+public let DARK_MAGE_COST = 90
+public let DARK_MAGE_BASE_DAMAGE = 26
+public let DARK_MAGE_ATTACK_SPEED = 1.0
+public let DARK_MAGE_RANGE = 350
+public let DARK_MAGE_SHORT_DESCRIPTION = "Promote to Dark Mage  [|cffFFcc00O|r]"
+public let DARK_MAGE_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff800027-31|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(DARK_MAGE_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(DARK_MAGE_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(DARK_MAGE_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Magic|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Light|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 Frenzy, Mindwarp|r"
+                                     

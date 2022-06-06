@@ -1,0 +1,19 @@
+package SilithidWithcerData
+
+public let SILITHID_WITHCER_UNIT_ID = 'h48V'
+public let SILITHID_WITHCER_TOWER_ID = 'h38V'
+public let SILITHID_WITHCER_MOVE_SPEED = 270
+public let SILITHID_WITHCER_MAX_HP = 1135
+public let SILITHID_WITHCER_COST = 240
+public let SILITHID_WITHCER_BASE_DAMAGE = 97
+public let SILITHID_WITHCER_ATTACK_SPEED = 0.70
+public let SILITHID_WITHCER_RANGE = 500
+public let SILITHID_WITHCER_SHORT_DESCRIPTION = "Promote to Silithid Withcer  [|cffFFcc00P|r]"
+public let SILITHID_WITHCER_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff800098-102|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(SILITHID_WITHCER_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(SILITHID_WITHCER_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(SILITHID_WITHCER_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Magic|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Unarmored|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 Carrion Swarm, Parasite|r"
+                                     

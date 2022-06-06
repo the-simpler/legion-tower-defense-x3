@@ -1,0 +1,56 @@
+package InsectFleet
+
+import InsectFleetData
+import AcidBreath
+import LegionUnit
+import ObjectIds
+import CorrosiveBreath
+import CorrosiveBreathObject
+
+@compiletime function createInsectFleet()
+    let insectFleet = new LegionUnit(LegionUnitId(INSECT_FLEET_UNIT_ID, 'hrif'), INSECT_FLEET_TOWER_ID)
+        ..setHotkey("P")
+        ..setName("Insect Fleet")
+        ..setSounds("Hydralisk")
+        ..setIcon("ReplaceableTextures\\CommandButtons\\BTNZergDrone.blp")
+        ..setModel("Models\\Sc2DroneTC_v2_bW.mdl")
+        ..setMovespeed(INSECT_FLEET_MOVE_SPEED)
+        ..setHP(INSECT_FLEET_MAX_HP)
+        ..setCost(INSECT_FLEET_COST)
+        ..setPriority(2)
+        ..setFoodCost(3)
+        ..setSize(48)
+        ..setSelectionSize(1.5)
+        ..setRange(INSECT_FLEET_RANGE)
+        ..setBaseDamage(INSECT_FLEET_BASE_DAMAGE)
+        ..setAttackSpeed(INSECT_FLEET_ATTACK_SPEED)
+        ..setBackswingDur(0.500)
+        ..setDamageDur(0.500)
+        ..setArmorType(ArmorType.Unarmored)
+        ..setTooltipShort(INSECT_FLEET_SHORT_DESCRIPTION)
+        ..setTooltipLong(INSECT_FLEET_FULL_DESCRIPTION)
+        ..setAttackType(AttackType.Magic)
+        ..setWeaponType(WeaponType.Missile)
+        ..setProjectileSpeed(1100)
+        ..setProjectileArt("Models\\Model085.mdl")
+        ..setProjectileArc(0)
+        ..setDamageInterval(12)
+        ..setDamageOffset(1)
+        ..setModelSize(1.25)
+        ..setMovementType(MovementType.Fly)
+
+    insectFleet.getTowerInstance()
+        ..setButtonPositionX(0)
+        ..setButtonPositionY(2)
+        ..setNormalAbilities("A008,"+ACID_BREATH_HIGH.toRawCode()+","+CORROSIVEPBREATH_SPELL_ID.toRawCode())
+        ..setManaMaximum(10)
+        ..setManaInitialAmount(10)
+        ..setPointValue(330)
+        ..setAttack1ProjectileHomingEnabled(true)
+    insectFleet.getUnitInstance()
+        ..setArmorSoundType(ArmorSoundType.Flesh)
+        ..setNormalAbilities(CORROSIVEBREATH_INITIAL_SPELL_ID.toRawCode()+","+ACID_BREATH_HIGH.toRawCode())
+        ..setManaMaximum(10)
+        ..setManaInitialAmount(4)
+        ..setManaRegeneration(1)
+

@@ -1,0 +1,19 @@
+package RoyalBeetleData
+
+public let ROYAL_BEETLE_UNIT_ID = 'h41I'
+public let ROYAL_BEETLE_TOWER_ID = 'h31I'
+public let ROYAL_BEETLE_MOVE_SPEED = 270
+public let ROYAL_BEETLE_MAX_HP = 1920
+public let ROYAL_BEETLE_COST = 245
+public let ROYAL_BEETLE_BASE_DAMAGE = 131
+public let ROYAL_BEETLE_ATTACK_SPEED = 1.1
+public let ROYAL_BEETLE_RANGE = 100
+public let ROYAL_BEETLE_SHORT_DESCRIPTION = "Promote to Royal Beetle  [|cffFFcc00P|r]"
+public let ROYAL_BEETLE_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff8000132-145|r" + 
+                                    "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(ROYAL_BEETLE_ATTACK_SPEED.toString()) +
+                                    "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(ROYAL_BEETLE_RANGE.toString()) +
+                                    "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(ROYAL_BEETLE_MAX_HP.toString()) +
+                                    "|cffcccccc|nAttack Type: |r" + "|cffff8000Siege|r" +
+                                    "|cffcccccc|nDefense Type: |r" + "|cffff8000Unarmored|r" +
+                                    "|cffcccccc|nAbility: |r|cff808080 Royal Silithid Blood, Thick Skin|r"
+                                    

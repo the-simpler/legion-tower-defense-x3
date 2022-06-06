@@ -1,0 +1,33 @@
+package Haunt
+
+import AbilityObjEditing
+import RegisterEvents
+import DummyCaster
+import OrderIds
+import ObjectIdGenerator
+
+public let HAUNT_FAKE_ID = 'A14X'
+
+
+@compiletime function haunt()
+    new AbilityDefinitionCurse(HAUNT_FAKE_ID)
+        ..setLevels(1)
+        ..setCastRange(1, 850)
+        ..setManaCost(1, 50)
+        ..setCooldown(1, 15)
+        ..setDurationNormal(1, 0.1)
+        ..setDurationHero(1, 0.1)
+        ..setBuffs(1, "")
+        ..setArtCaster("")
+
+init
+    registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT) ->
+        if GetSpellAbilityId() == HAUNT_FAKE_ID
+            let u = GetSpellAbilityUnit()
+            let abil = u.getTypeId() == 'h06F' ? 'A04J' : 'A04K'
+            new DummyCaster()
+                ..owner(GetTriggerPlayer())
+                ..delay(1)
+                ..origin(GetTriggerUnit().getPos())
+                ..castTargetWithUserData(abil, 1, OrderIds.unholyfrenzy , GetSpellTargetUnit(), u.getUserData()) 
+

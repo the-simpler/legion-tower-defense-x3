@@ -1,0 +1,41 @@
+package NGTree
+
+import ObjEditingNatives
+
+// @compelitime function createNGTree()
+//     createObjectDefinition("w3u", 'h722', 'hgtw')
+//     ..setInt("uhpm", 2020)
+//     ..setReal("usca", 3)
+//     ..setString("unam", "Happy New Year!")
+//     ..setString("umdl",  "Models\\NewYearFir.mdl")
+
+@compiletime function create_w3u_h05D()
+    createObjectDefinition("w3u", 'h722', 'hbla')
+    ..setInt("ucam", 1)
+    ..setString("ures", "")
+    ..setString("upgr", "")
+    ..setString("uabi", "")
+    ..setString("unam", "Happy New Year!")
+    ..setString("upap", "unwalkable")
+    ..setString("upat", "PathTextures\\4x4SimpleSolid.tga")
+    ..setString("uubs", "HSMA")
+    ..setString("ushb", "Happy New Year!")
+    ..setString("uhot", "")
+    ..setString("utip", "")
+    ..setString("utub", "")
+    ..setReal("usca", 0.5)
+    ..setInt("ubpx", 0)
+    ..setInt("uhpm", 2021)
+    ..setReal("usca", 3)
+    ..setString("ureq", "")
+    ..setInt("ulum", 0)
+    ..setInt("ugol", 75)
+    ..setInt("ubld", 10)
+    ..setString("umdl", "Models\\NewYearFir.mdl")
+    ..setString("usnd", "Happy New Year!")
+    ..setString("unsf", "(summon 13-24) - level 10")
+    ..setString("uico", "")
+    ..setString("useu", "")
+    ..setInt("uhom", 1)  
+
+

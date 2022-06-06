@@ -1,0 +1,41 @@
+package MindWarp
+
+import AbilityObjEditing
+import RegisterEvents
+import ClosureForGroups
+import DummyCaster
+import OrderIds
+import ObjectIdGenerator
+
+public let MIND_WARP_FOR_FAKE_ID = 'A11X'
+
+@compiletime function mindWarpForDummy()
+	new AbilityDefinitionCurse(MIND_WARP_FOR_FAKE_ID)
+		..setLevels(1)
+		..setCastRange(1, 420)
+		..setManaCost(1, 20)
+		..setCooldown(1, 15)
+		..setDurationNormal(1, 0.1)
+		..setDurationHero(1,  0.1)
+		..setChancetoMiss(1, 0)
+		..setBuffs(1, "")
+
+function mindWarpFilter() returns boolean
+	let f = GetFilterUnit()
+	if f.getOwner().isAllyOf(GetTriggerUnit().getOwner()) and f.getTypeId() != 'h03D' and GetUnitAbilityLevel(f, 'B00D') == 0 and f.getTypeId() != 'u006' and f.getTypeId() != 'xdum'
+		return true
+	return false
+
+init
+	registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT) ->
+		if GetSpellAbilityId() == MIND_WARP_FOR_FAKE_ID
+			let u = GetTriggerUnit()
+			let pos = u.getPos()
+			forNearestUnit(pos, 900, Filter(function mindWarpFilter)) (unit x) ->
+				new DummyCaster()
+					..owner(GetTriggerPlayer())
+					..delay(1)
+					..origin(pos)
+					..castTarget('A00X', 1, OrderIds.unholyfrenzy , x)
+			
+				

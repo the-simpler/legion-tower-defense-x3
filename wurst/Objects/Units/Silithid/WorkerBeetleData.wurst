@@ -1,0 +1,19 @@
+package WorkerBeetleData
+
+public let WORKER_BEETLE_UNIT_ID = 'h21I'
+public let WORKER_BEETLE_TOWER_ID = 'h11I'
+public let WORKER_BEETLE_MOVE_SPEED = 270
+public let WORKER_BEETLE_MAX_HP = 1070
+public let WORKER_BEETLE_COST = 195
+public let WORKER_BEETLE_BASE_DAMAGE = 82
+public let WORKER_BEETLE_ATTACK_SPEED = 1.0
+public let WORKER_BEETLE_RANGE = 100
+public let WORKER_BEETLE_SHORT_DESCRIPTION = "Deploy Worker Beetle [|cffFFcc00R|r]"
+public let WORKER_BEETLE_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff800083-92|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(WORKER_BEETLE_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(WORKER_BEETLE_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(WORKER_BEETLE_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Siege|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Unarmored|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 Higher Silithid Blood|r"
+                                     

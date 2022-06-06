@@ -1,0 +1,15 @@
+package MatOjidanie
+
+integer matOjidanieResult
+integer stepen
+
+function matOjidanieResult(real chance, real period, integer iteration) returns real
+    real matOjidanieResult = 0.0
+    real stepen = 1.0
+    for i = 1 to iteration
+        for g = 1 to i
+            stepen = (stepen * (1 - chance) )
+        matOjidanieResult = (matOjidanieResult + i.toReal() * period * (1 - stepen)) 
+    matOjidanieResult = matOjidanieResult / iteration 
+    return matOjidanieResult
+

@@ -1,0 +1,19 @@
+package MeridianData
+
+public let MERIDIAN_UNIT_ID = 'h06G'
+public let MERIDIAN_TOWER_ID = 'h060'
+public let MERIDIAN_MOVE_SPEED = 270
+public let MERIDIAN_MAX_HP = 1000
+public let MERIDIAN_COST = 350
+public let MERIDIAN_BASE_DAMAGE = 192
+public let MERIDIAN_ATTACK_SPEED = 1.0
+public let MERIDIAN_RANGE = 700
+public let MERIDIAN_SHORT_DESCRIPTION = "Promote to Meridian  [|cffFFcc00P|r]"
+public let MERIDIAN_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff8000196-224|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(MERIDIAN_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(MERIDIAN_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(MERIDIAN_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Magic|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Unarmored|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 Ghost Essence, Catastrophe|r"
+                                     

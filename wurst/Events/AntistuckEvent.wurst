@@ -1,0 +1,48 @@
+package AntistuckEvent
+
+import CallToKing
+import RegisterEvents
+import ClosureForGroups
+import OrderIds
+import RectsStore
+import StackFlags
+import ClosureTimers
+import StuckEffect
+
+
+let k = [udg_LKing, udg_RKing]
+
+init
+  CallToKing.setListenAreaforTeam(gg_rct_LKing, 0)
+  CallToKing.setListenAreaforTeam(gg_rct_RKing, 1)
+  CallToKing.setCallAreaForTeam(gg_rct_LKingSpawnWide, 0)
+  CallToKing.setCallAreaForTeam(gg_rct_RKingSpawnWide, 1)
+
+  registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT) ->
+
+
+    let p = GetTriggerPlayer()
+    let target = vec2(GetSpellTargetX(), GetSpellTargetY())
+    if GetSpellAbilityId() == 'A050' and RectsStore.teamRects[p.getTeam()].contains(target)
+      if CallToKing.isInAreas(vec2(GetSpellTargetX(), GetSpellTargetY()))
+        CallToKing.callUnits(GetTriggerPlayer().getTeam())
+      else
+        forUnitsInRange(target, 200) u ->
+          let owner = u.getOwner()
+          if owner.isEnemyOf(p)
+            IssuePointOrderByIdLoc(u, OrderIds.attack, k[p.getTeam()])
+          else if not StackFlags.isDisabled(u.getUserData() - 1, p.getId()) and udg_CreepSpawnPoint[u.getUserData()].size() == 0 and disStuckAccess
+            IssuePointOrderByIdLoc(u, OrderIds.attack, udg_PathingPointArray[u.getUserData()])
+      if stkaiEff[p.getId() + 1]
+        let x = GetSpellTargetX()
+        let y = GetSpellTargetY()
+        let eff = AddSpecialEffect("Doodads\\Cinematic\\Lightningbolt\\Lightningbolt.mdl", x, y)
+        doAfter(0.25) ->
+          eff.destr()
+      let u = GetTriggerUnit()
+      doAfter(0.5) -> 
+        u.pause()
+        u.issueImmediateOrderById(OrderIds.stop)
+        u.unpause()
+        u.setAnimation("attack")
+        u.queueAnimation("stand")

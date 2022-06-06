@@ -1,0 +1,49 @@
+package UnitUnpauser
+
+import OrderIds
+import ClosureTimers
+// import CreepDelayFix
+
+public trigger unitUnpauser = CreateTrigger()
+trigger enableUnpauser = CreateTrigger()
+
+function forActiveGroup()
+  let u = GetEnumUnit()
+  let order = GetUnitCurrentOrder(u)
+  if order != OrderIds.attack and order != OrderIds.curse and order != OrderIds.unholyfrenzy and order != OrderIds.mirrorimage and order != OrderIds.clusterrockets and order != 852218 and order != OrderIds.parasite and order != OrderIds.frostarmor and order != OrderIds.holdposition
+    let data = u.getUserData()
+    let loc = IsUnitInGroup(u, udg_WarpGroup[data]) == true ? udg_PathingPointArray[data] : udg_SpawnArr[data]
+    IssuePointOrderByIdLoc(u, OrderIds.attack , loc)
+
+function unpauserAction()
+  ForGroup(ActiveGroup, function forActiveGroup)
+
+function neBegite()
+  ForGroup(udg_CreepsLeft[1],function Dll)
+  ForGroup(udg_CreepsLeft[2],function Fll)
+
+function enableUnpauser()
+  TimerStart(begtm, 120, false, function neBegite)
+  unitUnpauser.enable()
+  doAfter(3) ->
+    disStuckAccess = true
+    // if L >= 12 and L < 25
+    //   doAfter(20) ->
+    //     delayFix.enable()
+
+function disableUnpauser()
+  for i = 1 to 8
+    udg_Unpause_Group[i].clear()
+  ActiveGroup.clear()
+  unitUnpauser.disable() 
+
+init 
+  unitUnpauser.addCondition(Condition(function unpauserAction))
+  TriggerRegisterTimerEventPeriodic(unitUnpauser, 1.5)
+  unitUnpauser.disable()
+  
+  TriggerRegisterTimerExpireEvent(enableUnpauser, udg_Spawn_Timer)
+  enableUnpauser.addAction(function enableUnpauser)
+
+  end_wave_trigger.addAction(function disableUnpauser)
+

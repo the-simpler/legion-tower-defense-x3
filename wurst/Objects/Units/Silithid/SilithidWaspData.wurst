@@ -1,0 +1,19 @@
+package SilithidWaspData
+
+public let SILITHID_WASP_UNIT_ID = 'h41H'
+public let SILITHID_WASP_TOWER_ID = 'h31H'
+public let SILITHID_WASP_MOVE_SPEED = 270
+public let SILITHID_WASP_MAX_HP = 400
+public let SILITHID_WASP_COST = 140
+public let SILITHID_WASP_BASE_DAMAGE = 34
+public let SILITHID_WASP_ATTACK_SPEED = 0.85
+public let SILITHID_WASP_RANGE = 650
+public let SILITHID_WASP_SHORT_DESCRIPTION = "Promote to Silithid Wasp  [|cffFFcc00P|r]"
+public let SILITHID_WASP_FULL_DESCRIPTION = "|cffccccccDamage: |r|cffff800035-46|r" + 
+                                     "|cffcccccc|nSpeed: |r" + "|cffff8000{0}|r".format(SILITHID_WASP_ATTACK_SPEED.toString()) +
+                                     "|cffcccccc|nRange: |r" + "|cffff8000{0}|r".format(SILITHID_WASP_RANGE.toString()) +
+                                     "|cffcccccc|nHit Points: |r" + "|cffff8000{0}|r".format(SILITHID_WASP_MAX_HP.toString()) +
+                                     "|cffcccccc|nAttack Type: |r" + "|cffff8000Pierce|r" +
+                                     "|cffcccccc|nDefense Type: |r" + "|cffff8000Unarmored|r" +
+                                     "|cffcccccc|nAbility: |r|cff808080 Higher Silithid Blood, Tripleshot|r"
+                                     

@@ -1,0 +1,10 @@
+// package TestUnitTaker
+// 
+// import RegisterEvents
+// 
+// init
+//     registerPlayerUnitEvent(EVENT_PLAYER_UNIT_SELECTED) ->
+//         GetTriggerUnit().setOwner(GetTriggerPlayer(), true)
+//         // print(GetTriggerUnit().getUnitAcquireRange())
+//         // print(GetTriggerUnit().getMoveSpeed())
+// // 
